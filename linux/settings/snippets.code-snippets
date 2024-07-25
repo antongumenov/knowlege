@@ -1,0 +1,42 @@
+{
+    "coment go, rust, proto": {
+        "scope": "go, rust, proto",
+        "prefix": "0",
+        "body": "// $1",
+    },
+    "coment purple go, rust, proto": {
+        "scope": "go, rust, proto",
+        "prefix": "00",
+        "body": "//~ $1",
+    },
+    "coment red go, rust, proto": {
+        "scope": "go, rust, proto",
+        "prefix": "000",
+        "body": "//_ $1",
+    },
+    "coment hl go, rust, proto": {
+        "scope": "go, rust, proto",
+        "prefix": "0000",
+        "body": "//! $1",
+    },
+    "coment todo go, rust, proto": {
+        "scope": "go, rust, proto",
+        "prefix": "00000",
+        "body": "//todo $1",
+    },
+    "coment html": {
+        "scope": "html",
+        "prefix": "0",
+        "body": "<!-- $1-->",
+    },
+    "pl": {
+        "scope": "go",
+        "prefix": "pl",
+        "body": "fmt.Println($1)",
+    },
+    "pf": {
+        "scope": "go",
+        "prefix": "pf",
+        "body": "fmt.Printf(\"$1\")",
+    },
+}
