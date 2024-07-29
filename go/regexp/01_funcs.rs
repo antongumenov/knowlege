@@ -39,7 +39,7 @@ fmt.Println(match) // true
 sl := pattern.FindStringIndex(description)
 fmt.Println(sl) // [2 6]
 
-//~ FindAllStringIndex(s, max)
+attern.FindAllString//~ FindAllStringIndex(s, max)
 // в:озвращает max вхождений паттерна в строку
 sl2 := pattern.FindAllStringIndex(description+`boat`, 5)
 fmt.Println(sl2) // [[2 6] [21 25]]
@@ -49,9 +49,10 @@ fmt.Println(sl2) // [[2 6] [21 25]]
 s := pattern.FindString(description)
 fmt.Println(s) // boat
 
-//~ FindAllString(s)
+//~ FindAllString(s, n)
 // возвращает строку самого левого совпадения
-sa := pattern.FindAllString(description+`boat`, 5)
+// если n=-1 будет искать все совпадения
+sa := p(description+`boat`, 5)
 fmt.Println(sa) // [boat boat]
 
 //~ Split(s, max)
@@ -59,21 +60,25 @@ fmt.Println(sa) // [boat boat]
 sa = pattern.Split(description+`boat`, 5)
 fmt.Println(sa) // [A   for one person ]
 
-//_ РАБОТА С ПОДВЫРАЖЕНИЯМИ
+//_ РАБОТА С ГРУППАМИ
 // нужно чтобы доставать несколько значений из шаблонной строки
-// обычные подвыражения записываются в ()
+// такой как выборка папок и прав по команде ls -l
+
+// группа записываются в ()
+// все регулярное выражение считается нулевой группой
+// а все что в скобках идет по порядку от 1
 description := "A boat for one person, fuckeng shit! A boat for one person"
 pattern := regexp.MustCompile("A ([A-z]*) for ([A-z]*) person")
 
 //~ FindStringSubmatch(s)
-// возвращает массив, где первый элемент строка
+// возвращает массив, где первый элемент 0 группа
 // а дальше слова соответствующие шаблону
 sa := pattern.FindStringSubmatch(description)
 fmt.Println(sa) // [A boat for one person boat one]
 
 //~ FindStringSubmatchIndex(s)
 // то же самое что и FindStringSubmatch но возвращает индексы
-// начала и конса строки и вхождений
+// начала и конца нулевой группы и остальных
 sp := pattern.FindStringSubmatchIndex(description)
 fmt.Println(sp) // [0 21 2 6 11 14]
 
@@ -85,25 +90,25 @@ fmt.Println(st) // [[A boat for one person boat one] [A boat for one person boat
 
 //~ FindAllStringSubmatchIndex(s, max)
 // тио же самое, что FindAllStringSubmatch, только вытащит индексы
-description = "A boat for one person, fuckeng shit! A boat for one person"
 k := pattern.FindAllStringSubmatchIndex(description, 2)
 fmt.Println(k) // [[0 21 2 6 11 14] [37 58 39 43 48 51]]
 
 //~ NumSubexp()
-// количество подвыражений в паттерне
+// количество групп в паттерне
 fmt.Println(pattern.NumSubexp()) // 2
 
-//_ РАБОТА С ИМЕНОВАННЫМИ ПОДВЫРАЖЕНИЯМИ
-// подвыражения можно именовать
+//_ РАБОТА С ИМЕНОВАННЫМИ ГРУППАМИ
+// группу можно именовать
+// и доставать значения по группам
 pattern = regexp.MustCompile("A (?P<type>[A-z]*) for (?P<capacity>[A-z]*) person")
 
 //~ SubexpIndex(name)
-// индекс подвыражения с указанным именем
+// индекс группы с указанным именем
 fmt.Println(pattern.SubexpIndex(`type`)) // 1
 
 //~ SubexpNames()
-// все имена подвыражений в том порядке в котором они определены
-fmt.Println(pattern.SubexpNames()) // [ type capacity] - первый почему то пцстая строка
+// все имена групп в том порядке в котором они определены
+fmt.Println(pattern.SubexpNames()) // [ type capacity] - первый пустая строка, так как вся строка есть нулевая группа
 
 subs := pattern.FindStringSubmatch(description)
 fmt.Println(subs)
@@ -127,7 +132,7 @@ for _, name := range pattern.SubexpNames() {
 pattern := regexp.MustCompile("A (?P<type>[A-z]*) for (?P<capacity>[A-z]*) person")
 description := "Kayak. A boat for one person. Kayak. A boat for one person."
 
-// пишем шаблон для вставки, у указанием имен подвыражений
+// пишем шаблон для вставки, у указанием имен групп
 template := "(type: ${type}, capacity: ${capacity})"
 
 // заменяем
