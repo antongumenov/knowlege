@@ -10,7 +10,7 @@ fmt.Println(strings.Repeat("MAN", 7)) // MANMANMANMANMANMANMAN
 // набор функций типа strings.Builder
 // для построения строк
 
-// создаю компоновщик
+// создаю writer
 var builder strings.Builder
 
 // Формирую строку

@@ -67,3 +67,8 @@ func enumerateProducts(channel chan<- *Product) {
     }
     close(channel)
 }
+
+//_ DEFAULT
+// если не поставить секцию default
+// select заблокирует горутину 
+// пока по какому то каналу не прийдут данные

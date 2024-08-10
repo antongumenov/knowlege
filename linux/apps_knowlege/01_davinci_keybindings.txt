@@ -1,0 +1,24 @@
+split clip w
+start to playhead q
+end to playhead  e
+razor w
+
+pause/start playback x
+fast reverse z
+fast forvard c
+
+select Clips back on All tracks a
+select clips forvard on all thacks d 
+
+delete gaps Esc - delete gaps in video
+
+set clip color - i need to set numbers on colors to paint cuts
+
+set marker m
+
+retime control ctrl + r
+retime curve r
+retime speed shift + r
+
+
+
