@@ -11,3 +11,11 @@ fmt.Println(request.ContentLength)    // 0
 fmt.Println(request.RemoteAddr)       // [::1]:59882
 fmt.Println(request.TransferEncoding) // []
 fmt.Println(request.Body)             // {}
+
+// Body можно прочитать любыми методами чтения из Reader
+data, _ := io.ReadAll(request.Body)
+fmt.Println(string(data))
+defer request.Body.Close()
+
+// а можно и отправить в Writer
+io.Copy(writer, request.Body)

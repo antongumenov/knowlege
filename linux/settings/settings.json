@@ -1,4 +1,5 @@
 {
+    // включаю сниппеты
     "editor.tabCompletion": "onlySnippets",
     "better-comments.tags": [
         {
@@ -60,4 +61,14 @@
     "editor.formatOnSave": true,
     "html.format.contentUnformatted": "",
     "git.openRepositoryInParentFolders": "never",
+    // убираю две папки в одной строке
+    "explorer.compactFolders": false,
+    // убираю быстрые подсказки, чтобы нормально пользоваться сниппетами
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    // убераю подсветку символов UNICODE
+    "editor.unicodeHighlight.ambiguousCharacters": false
 }

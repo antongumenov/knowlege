@@ -103,3 +103,38 @@ import "github.com/fatih/color"
 //_ УДАЛЕНИЕ ВНЕШНЕГО ПАКЕТА
 // удаляю все импорты и делаю
 go mod tidy
+
+//_ ВЕНДОРИНГ
+// если я хочу чтоб мои внешние пакеты лежали у меня в корне проекта
+
+//~ первый вариант
+// добавляю импорты
+import (
+	_ "github.com/lib/pq"
+	_ "github.com/mattn/go-sqlite3"
+)
+
+// качаю
+go mod tydy
+
+// создаю папку vendor и кладу туда пакеты
+// попадет только то что используется в коде
+go mod vendor
+
+//~ второй вариант
+// качаю
+go get github.com/lib/pq
+go get github.com/mattn/go-sqlite3
+
+// использую
+import (
+	_ "github.com/lib/pq"
+	_ "github.com/mattn/go-sqlite3"
+)
+
+// вендорю
+go mod vendor
+
+// утрясаю
+go mod tydy
+

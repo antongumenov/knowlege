@@ -9,10 +9,10 @@
 // Secure - если true, то кука будет отправлена только по https
 // HttpOnly - если true, то кука не будет доступна из JavaScript
 // SameSite - политика перекрестного происхождения cookie с использованием констант
-// 		- SameSiteDefaultMode,
-// 		- SameSiteLaxMode,
-// 		- SameSiteStrictMode
-// 		- SameSiteNoneMode
+// 		- SameSiteDefaultMode - в большенстве поставит SameSiteLaxMode, не стоит использовать
+// 		- SameSiteLaxMode - отправит куки если клиент переходит по ссылке на этот сайт
+// 		- SameSiteStrictMode - отрпавит куки только если коиент на этом сайте
+// 		- SameSiteNoneMode - куки полетят везде, используется только с параметром Strict=true
 
 //_ УСТАНОВКА Cookie
 //~ SetCookie(writer, cookie)

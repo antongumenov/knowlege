@@ -1,15 +1,5 @@
 //_ 1 - УСТАНОВКА
-curl -sLO https://github.com/tailwindlabs/tailwindcss-linux-x64
-chmod 755 tailwindcss-linux-x64
-mv tailwindcss-linux-x64 tailwindcss
-
-// менняю пользователя на root
-mv tailewindcss /usr/bin
-
-// идем в .bahrc
-// добавляем переменную среды в конец файла bash
-PATH=$PATH:/usr/bit/tailwindcss
-export PATH
+paru -S tailwindcss-bin
 
 //_ 2 - ГЕНЕРАЦИЯ tailwind.config.js
 // tailwindcss init
