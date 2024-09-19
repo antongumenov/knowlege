@@ -52,7 +52,7 @@ for {
 alldone: fmt.Println("All values received")
 
 //_ ОТПРАВКА БЕЗ БЛОКИРОВКИ
-// так же я могу потправлять без блокировки
+// так же я могу отправлять без блокировки
 func enumerateProducts(channel chan<- *Product) {
     for _, p := range ProductList {
         // типа если канал свободен отправляю

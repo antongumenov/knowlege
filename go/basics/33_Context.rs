@@ -52,6 +52,7 @@ func main() {
 	waitGroup := sync.WaitGroup{}
 	waitGroup.Add(1)
 	// создаю контекст с отменой из контекста по умолчанию
+	// получаю так же функцию отмены
 	ctx, cancel := context.WithCancel(context.Background())
 	// передаю в горутину
 	go processRequest(ctx, &waitGroup)
@@ -89,7 +90,8 @@ func main() {
 	waitGroup.Add(1)
 	// создаю контекст и передаю в горутину
 	// и даю 2 секунды на работу горутине
-	ctx, _ := context.WithTimeout(context.Background(), time.Second*2)
+	// получаю так же функцию отмены
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	go processRequest(ctx, &waitGroup)
 	waitGroup.Wait()
 }
@@ -119,7 +121,8 @@ func main() {
 	waitGroup := sync.WaitGroup{}
 	waitGroup.Add(1)
 	// создаю контекст с таймаутом
-	ctx, _ := context.WithTimeout(context.Background(), time.Second*2)
+	// получаю так же функцию отмены
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	// в него вкладываю первое значение
 	ctx = context.WithValue(ctx, "id", 4)
 	// второе значение

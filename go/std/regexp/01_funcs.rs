@@ -52,7 +52,7 @@ fmt.Println(s) // boat
 //~ FindAllString(s, n)
 // возвращает строку самого левого совпадения
 // если n=-1 будет искать все совпадения
-sa := p(description+`boat`, 5)
+sa := pattern.FindAllString(description+`boat`, 5)
 fmt.Println(sa) // [boat boat]
 
 //~ Split(s, max)
