@@ -105,3 +105,4 @@ ssh-add ~/.ssh/id_ed25519
 git checkout 54161641651ljbafsdf6156 - переход на коммит по номеру
 git checkout v1.0.0 - переход на комит с тегом v1.0.0
 git checkout main - вернуться к последнему коммиту
+
