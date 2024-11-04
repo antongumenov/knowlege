@@ -12,6 +12,7 @@ fmt.Println(request.RemoteAddr)       // [::1]:59882
 fmt.Println(request.TransferEncoding) // []
 fmt.Println(request.Body)             // {}
 
+//_ ПОЛУЧЕНИЕ Body
 // Body можно прочитать любыми методами чтения из Reader
 data, _ := io.ReadAll(request.Body)
 fmt.Println(string(data))
@@ -19,3 +20,7 @@ defer request.Body.Close()
 
 // а можно и отправить в Writer
 io.Copy(writer, request.Body)
+
+//_ ПОЛУЧЕНИЕ Query ПАРАМЕТРОВ
+// /snippet/view?id=1
+request.URL.Query().Get("id")

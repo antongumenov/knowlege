@@ -1,4 +1,4 @@
-//_ СИСТЕМА
+//_ СИСТЕМА SVELTE KIT
 // src/routes - тут файлы начального экрана
 // src/routes/about - файлы страницы about
 // src/routes/blog/[slug] - файлы динамического пути типа /blog/hello-world

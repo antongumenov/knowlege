@@ -1,16 +1,19 @@
-//_ УТСАНОВКА И СОЗДАНИЕ ПРОЕКТА
+//_ УСТАНОВКА И СОЗДАНИЕ ПРОЕКТА
 
 //~ стравлю Ноду
 // paru -S nodejs
 // paru -S npm
 
-//~ создаю проект
-// npm create svelte@latest name
-// cd name
-// npm install
-// npm run dev
+//~ создаю проект svelteKit
+npx sv create myappname
+cd myappname
+npm run dev -- --open
 
-//_ РАБОТА С GO
+//~ создание проекта на чистом svelte
+npm create vite@latest
+
+//_ РАБОТА С GO CO СТАТИКОЙ
+// это канает только для статических страниц
 // суть следующая
 // я пишу сервер, отдающий статику, с любым API
 // пишу фронт, и генерю статику в папку сервера
@@ -18,7 +21,7 @@
 // для этого мен нужно установить генератор статики
 
 //~ adapter-static
-// npm i -D @sveltejs/adapter-static
+npm i -D @sveltejs/adapter-static
 
 //~ настройка svelte.config.js
 import adapter from '@sveltejs/adapter-static';

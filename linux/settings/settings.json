@@ -56,7 +56,6 @@
     "window.zoomLevel": 1.1,
     "terminal.integrated.mouseWheelZoom": true,
     "terminal.integrated.fontSize": 12,
-    "workbench.iconTheme": "file-icons",
     "liveServer.settings.donotShowInfoMsg": true,
     "editor.formatOnSave": true,
     "html.format.contentUnformatted": "",

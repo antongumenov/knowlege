@@ -1,4 +1,33 @@
 //_ СОБЫТИЯ
+//~ DOM EVENTS
+<script>
+	let m = $state({ x: 0, y: 0 });
+
+	function handleMousemove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+</script>
+
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div onmousemove={handleMousemove}>
+	The mouse position is {m.x} x {m.y}
+</div>
+
+//~ СОБЫТИЕ КОМПОНЕНТА
+<script>
+	let { onMessage } = $props();
+
+	function sayHello() {
+		onMessage({ text: "Hello!" });
+	}
+</script>
+
+<button onclick={sayHello}> Click to say hello </button>
+
+
+
+//_ СОБЫТИЯ C ON
 <script>
 	let m = { x: 0, y: 0 };
 
@@ -13,7 +42,7 @@
 	The pointer is at {m.x} x {m.y}
 </div>
 
-//_ МОДИФИКАТОРЫ СОБЫТИЙ
+//_ МОДИФИКАТОРЫ СОБЫТИЙ C ON
 // можно задать характеристики реакции на событие
 // тут она сработает лишь раз
 <button on:click|once={() => alert('clicked')}>
@@ -33,7 +62,7 @@
 // можно группировать
 on:click|once|capture={...}
 
-//_ СОБЫТИЯ КОМПОНЕНТА
+//_ СОБЫТИЯ КОМПОНЕНТА C ON
 // можно создавать собственные события
 
 //~ компонент в котором создаю событие
@@ -68,7 +97,7 @@ on:click|once|capture={...}
 // ловлю событие
 <Inner on:message={handleMessage} />
 
-//_ ВСПЛЫТИЕ СОБЫТИЙ КОМПОНЕНТА
+//_ ВСПЛЫТИЕ СОБЫТИЙ КОМПОНЕНТА C ON
 // в отличии от DOM событий, события компонента не всплывают
 // его нужно пробрасывать если хочу поймать его выше
 
@@ -110,7 +139,7 @@ on:click|once|capture={...}
 
 <Outer on:message={handleMessage} />
 
-//_ ПРОБРАСЫВАНЕИ DOM СОБЫТИЙ
+//_ ПРОБРАСЫВАНЕИ DOM СОБЫТИЙ C ON
 // здесь использую внешний обработчик
 <button on:click>
 	Push
