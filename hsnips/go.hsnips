@@ -1,0 +1,77 @@
+
+global
+function replaceInType(str) {
+    repArr = [
+        { sym: /_i8/g, rep: " int8" },
+        { sym: /_i1/g, rep: " int16" },
+        { sym: /_i3/g, rep: " int32" },
+        { sym: /_i6/g, rep: " int64" },
+        { sym: /_i/g, rep: " int" },
+        { sym: /_f3/g, rep: " float32" },
+        { sym: /_f/g, rep: " float64" },
+        { sym: /_s/g, rep: " string" },
+        { sym: /_b/g, rep: " bool" },
+        { sym: /_r/g, rep: " rune" },
+        { sym: /\[/g, rep: " [" },
+        { sym: /\] /g, rep: "]" },
+        { sym: /_m \[ /g, rep: " map[" },
+        { sym: /,/g, rep: ", " },
+    ]
+    repArr.forEach(el => {
+        str = str.replace(el.sym, el.rep)
+    });
+
+    return str
+}
+
+function replaceRetType(str) {    
+    if (!str){
+        return ''
+    }
+    if (str.split(",").length>1){
+        str= "(" + str + ")"
+        str= str.replace("( ","(")
+        str= str.replace(",  ",", ")
+        return str
+    }else if (str.split(",").length=1){
+        str= str.replace(" ","")
+        return str
+    }
+        
+    return ''    
+}
+endglobal
+
+//package
+snippet `p ([A-Za-z0-9_]+) ` "package: p (name) " A
+package ``rv = m[1]``
+endsnippet
+
+// func
+snippet `f ([A-Za-z0-9]+) ([A-Za-z0-9\[\]\{\}\(\)_,]*) ([A-Za-z0-9\[\]\{\}\(\)_,]*)\ ` "func: f (name) (name_type,name_type) (_type,_type) " A
+func ``rv = m[1]``(``rv = replaceInType(m[2])``) ``rv = replaceRetType(replaceInType(m[3]))``{
+    $0
+}
+endsnippet
+
+//struct
+snippet `s ([A-Za-z0-9]+) ` "s (name) " A
+type ``rv = m[1]`` struct{
+    $0
+}
+endsnippet
+
+//method
+snippet `m ([A-Za-z0-9]+) ([A-Za-z0-9]+) ([A-Za-z0-9\[\]\{\}\(\)_,]*) ([A-Za-z0-9\[\]\{\}\(\)_,]*)\ ` "meth: m (resiver) (name) (name_type,name_type) (_type,_type) " A
+func (r *``rv = m[1]``) ``rv = m[2]``(``rv = replaceInType(m[3])``) ``rv = replaceRetType(replaceInType(m[4]))``{
+    $0
+}
+endsnippet
+
+// interface
+snippet `i ([A-Za-z0-9]+) ` "i (name) " A
+type ``rv = m[1]`` interface{
+    $0
+}
+endsnippet
+

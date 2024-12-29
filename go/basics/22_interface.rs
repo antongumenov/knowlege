@@ -108,8 +108,30 @@ data := []interface{} {
     true,
 }
 
-//~ пустой интерфейс можно использовать как параметр функции
-func processItem(item interface{}) {}
+//~ пустой интерфейс
+var l interface{} = interface{}(nil)
+
+//~ проверка типа значения в интерфейсе
+//! если ввести не тот тип будет паника
+// обрати внимание, эта конструкция возвращает зачение и истину
+// или значение по умолчанию типа на который делаю проверку и лож
+var s interface{} = "fassd"
+b, ok := s.(string)
+fmt.Println(b, ok) // fassd true
+b2, ok := s.(bool)
+fmt.Println(b2, ok)   // false false
+
+//~ проверка типа правильно
+switch i.(type) {
+    case int:
+        fmt.Println("x is an integer")
+    case float64:
+        fmt.Println("x is a float")
+    case string:
+        fmt.Println("x is a string")
+    default:
+        fmt.Println("x is of unknown type")
+    }
 
 //_ ИНТЕРФЕЙСЫ ТИПОВ
 // создаются для дженериков и описывают возможные типы

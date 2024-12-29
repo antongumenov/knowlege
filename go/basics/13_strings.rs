@@ -32,3 +32,18 @@ var amountString string = string(price[1:])// 48.95
 // байты важны когда ты хочешь знать сколько тебе нужно места для хранения
 // символы нужны для работы с содержимым строк
 
+//_ ДЛИННА СТРОКИ В РУНАХ
+utf8.RuneCountInString(message)
+
+//_ ПЕРЕБОР СТРОК 
+var message string = "Привет, мир!"
+//~ побуквенный вывод строки в случае range
+for _, char := range message {
+	fmt.Println(string(char)) 
+}
+//~ побайтовый вывод строки в случае цикла for
+for i := 0; i < len(message); i++ {
+	// в данном случае символы будут содержать некорректные значения
+	fmt.Println(string(message[i])) 
+}
+

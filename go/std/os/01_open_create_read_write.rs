@@ -89,3 +89,6 @@ file.Read(b)
 fmt.Println(string(b))
 // string
 // third string
+
+//_ УДАЛЕНИЕ ФАЙЛА
+os.Remove("example.txt")

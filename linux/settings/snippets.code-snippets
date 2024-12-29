@@ -32,11 +32,11 @@
     "pl": {
         "scope": "go",
         "prefix": "pl",
-        "body": "log.Println($0)",
+        "body": "fmt.Println($0)",
     },
     "pf": {
         "scope": "go",
         "prefix": "pf",
-        "body": "log.Printf(\"$0\")",
+        "body": "fmt.Printf(\"$0\")",
     },
 }

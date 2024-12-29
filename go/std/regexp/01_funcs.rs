@@ -127,6 +127,7 @@ for _, name := range pattern.SubexpNames() {
 //~ ReplaceAllString(s, template)
 // заменяет совпадение по регулярному выражению на текст по шаблону
 // во всех строках
+// можно использовать для удаления символов по регулярному выражению
 
 // компилируем регулярное выражение
 pattern := regexp.MustCompile("A (?P<type>[A-z]*) for (?P<capacity>[A-z]*) person")
