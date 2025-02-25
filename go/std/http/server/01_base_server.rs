@@ -1,4 +1,4 @@
-//_ СОЗДАНИЕ СЕРВЕРА
+//>> СОЗДАНИЕ СЕРВЕРА
 // ~ создаем хандлер
 // хендлер создаем как структуру с методом хендлером для каждого пути
 // как правило в себе содержит ссылку на контроллер
@@ -14,7 +14,7 @@ func (sh StringHandler) ServeHTTP(writer http.ResponseWriter, request *http.Requ
 	io.WriteString(writer, sh.message)
 }
 
-//~ запуск сервера
+//<< запуск сервера
 // по http использую ListenAndServe(addr, handler)
 // по https использую ListenAndServeTLS(addr, cert, key, handler)
 // ListenAndServe принимает все что реализует интерфейс Handler

@@ -1,21 +1,21 @@
-//_ ФУНКЦИИ ВРЕМЕНИ ДЛЯ ГОРУТИН
+//>> ФУНКЦИИ ВРЕМЕНИ ДЛЯ ГОРУТИН
 
-//~ Sleep(duration)
+//<< Sleep(duration)
 // останавливает горутину на duration
 time.Sleep(time.Second * 3)
 fmt.Println("i woke up")
 
-//~ After(duration)
+//<< After(duration)
 // возвращает канал, который блокируется на указанное время, а затем возвращает Time
 // можно использовать как разовое оповещение
 select {
     case news := <-NEWS_CHAN:
         fmt.Println(news)
     case <-time.After(time.Hour):
-        fmt.Println("No news in an hour.")
+        fmt.Println("Превышено время ожидания")
 }
 
-//~ Tick(duration)
+//<< Tick(duration)
 // возвращает канал который периодически отправляет Time
 // можно использовать как переодическое обовещение
 // представляет из себя бесконечный таймер
@@ -38,7 +38,7 @@ for {
 	}
 }
 
-//~ AfterFunc(duration, func)
+//<< AfterFunc(duration, func)
 // выполняет указанную функцию в своей собственной горутине
 // результат Timer, при нажатии Stop можно отменить функцию до истечения времени
 // применяется как триггер функции при ее долгом исполнении

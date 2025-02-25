@@ -1,14 +1,14 @@
-//_ ХРАНЕНИЕ ОТДЕЛЬНОГО СОСТОЯНИЯ
+//>> ХРАНЕНИЕ ОТДЕЛЬНОГО СОСТОЯНИЯ
 // когда состояние приложения необходимо для нескольких компонентов
 // оно хранится в отдельном модуле
 // в свелт есть втроенный функционал для стейта приложения
 // я могу подписаться
 // и компонент будет обновляться
 
-//_ WRITABLE
+//>> WRITABLE
 // состояние которое я могу изменять
 
-//~ создание
+//<< создание
 // создаю файл stores.js
 import { writable } from "svelte/store";
 
@@ -16,7 +16,7 @@ import { writable } from "svelte/store";
 // и методы подписки, обновления и установки значения
 export const count = writable(0);
 
-//~ подписка и чтение
+//<< подписка и чтение
 // в компоненте
 <script>
 	import { onDestroy } from 'svelte';
@@ -42,7 +42,7 @@ export const count = writable(0);
 <Decrementer />
 <Resetter />
 
-//~ изменение
+//<< изменение
 // в компоненте
 <script>
 	import { count } from './stores.js';
@@ -56,7 +56,7 @@ export const count = writable(0);
 	-
 </button>
 
-//~ установка значения
+//<< установка значения
 // в компоненте
 <script>
 	import { count } from './stores.js';
@@ -70,7 +70,7 @@ export const count = writable(0);
 	reset
 </button>
 
-//_ АВТОПОДПИСКА
+//>> АВТОПОДПИСКА
 // это синтаксический сахар генерирующий и подписку и отписку
 // в компоненте
 <script>
@@ -87,11 +87,11 @@ export const count = writable(0);
 <Decrementer />
 <Resetter />
 
-//_ READABLE
+//>> READABLE
 // состояние которое не нужно изменять в компонегтах
 // например положение мышки или время
 
-//~ создание 
+//<< создание 
 // в stores.js
 import { readable } from "svelte/store";
 
@@ -109,7 +109,7 @@ export const time = readable(new Date(), function start(set) {
 	};
 });
 
-//~ автоподписка
+//<< автоподписка
 // в компоненте
 <script>
 	import { time } from './stores.js';
@@ -128,10 +128,10 @@ export const time = readable(new Date(), function start(set) {
 <h1>The time is {formatter.format($time)}</h1>
 
 
-//_ ВЫВОДИМОЕ ИЛИ ЗАВИСИМОЕ СОСТОЯНИЕ
+//>> ВЫВОДИМОЕ ИЛИ ЗАВИСИМОЕ СОСТОЯНИЕ
 // можно задать состояние которое зависит от другого состояния
 
-//~ например создание readable + derived
+//<< например создание readable + derived
 // в stores.js
 import { readable, derived } from "svelte/store";
 
@@ -154,7 +154,7 @@ export const elapsed = derived(
 	($time) => Math.round(($time - start) / 1000)
 );
 
-//~ использование
+//<< использование
 // в компоненте
 <script>
 	import { time, elapsed } from './stores.js';
@@ -178,8 +178,8 @@ export const elapsed = derived(
 	{$elapsed === 1 ? 'second' : 'seconds'}
 </p>
 
-//_ КАСТОМНЫЙ СТЕЙТ
-//~ создание
+//>> КАСТОМНЫЙ СТЕЙТ
+//<< создание
 // я могу создать и имплементировать логику в нем же
 // ту которую я захочу
 // в stores.js
@@ -199,7 +199,7 @@ function createCount() {
 // создаю обьект типа count
 export const count = createCount();
 
-//~ простое применения
+//<< простое применения
 <script>
 	import { count } from './stores.js';
 </script>
@@ -211,7 +211,7 @@ export const count = createCount();
 <button on:click={count.reset}>reset</button>
 
 
-//_ БАЙНДИНГ
+//>> БАЙНДИНГ
 // состояние можно так же привязывать
 // например создаю такое сотсояние
 import { writable, derived } from "svelte/store";

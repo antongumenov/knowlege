@@ -1,8 +1,8 @@
-//_ ФАЙЛЫ СЕРТИФИКАТА
-//~ файлы сертификата
+//>> ФАЙЛЫ СЕРТИФИКАТА
+//<< файлы сертификата
 // кидаем в папку httpsserver файл сертификата и публичного ключа
 
-//_ ЗАПУСК СЕРВЕРА
+//>> ЗАПУСК СЕРВЕРА
 // если работаю и с http и с https
 // то ListenAndServeTLS запускаю в отдельной горутине 
 // так как ListenAndServeTLS и ListenAndServe взаимоблокируются
@@ -18,7 +18,7 @@ if (err != nil) {
     Printfln("Error: %v", err.Error())
 }
 
-//_ РЕДИРЕКТ НА HTTPS
+//>> РЕДИРЕКТ НА HTTPS
 // просто делаем функцию обработчик, которая правит url на https и делает redirect
 func HTTPSRedirect(writer http.ResponseWriter, request *http.Request) {
 	host := strings.Split(request.Host, ":")[0]

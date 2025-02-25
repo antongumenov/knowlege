@@ -1,4 +1,4 @@
-//_ SWITCH
+//>> SWITCH
 character := 'k'
 switch character {
     case 'r':
@@ -11,7 +11,7 @@ switch character {
         fmt.Println("nothing run") // сюда если не один не соответствует
 }
 
-//~ исключение значений
+//<< исключение значений
 switch {
     case counter == 0:
         fmt.Println("Zero value")
@@ -23,7 +23,7 @@ switch {
         fmt.Println(counter, "is >= 7")
 }
 
-//_ SWITCH c ИНИЦИАЛИЗАЦИЕЙ
+//>> SWITCH c ИНИЦИАЛИЗАЦИЕЙ
 // инициализированное значение можно использовать в блоках
 switch val := counter / 2; val {
     case 2, 3, 5, 7:

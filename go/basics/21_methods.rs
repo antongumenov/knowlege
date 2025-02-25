@@ -1,7 +1,7 @@
-//_ МЕТОДЫ
+//>> МЕТОДЫ
 // это функции привязанные к структуре
 
-//~ обьявление
+//<< обьявление
 type Product struct {
     name, category string
     price float64
@@ -17,17 +17,17 @@ func (product *Product) printDetails(){
     fmt.Println("Name:", product.name, "Category:", product.category, "Price", product.price)
 }
 
-//~ вызов метода
+//<< вызов метода
 products := Product {"Kayak", "Watersports", 275}
 product.printDetails()
 
-//_ ОПРЕДЕЛЕНИЕ МЕТОДАВ ДЛЯ ВСЕВДАНИМА
+//>> ОПРЕДЕЛЕНИЕ МЕТОДАВ ДЛЯ ВСЕВДАНИМА
 // метод можно прилепить к любому типу в пределах пакета
 type ProductList []Product
 func (products *ProductList) calcCategoryTotals() map[string]float64 {
 }
 
-//_ МЕТОДЫ СТРУКТУР ПРИ ВСТРАИВАНИИ
+//>> МЕТОДЫ СТРУКТУР ПРИ ВСТРАИВАНИИ
 // при встраивании стуктура так же унаследует все методы вложенной структуры
 type Contact struct {
 }

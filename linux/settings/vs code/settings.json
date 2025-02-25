@@ -1,0 +1,74 @@
+{
+    "workbench.startupEditor": "none",
+    "go.gopath": "/home/ang/Go",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Ubuntu Mono'",
+    "explorer.compactFolders": false,
+    "editor.tabCompletion": "onlySnippets",
+    "better-comments.tags": [
+
+        {
+            "tag": "_",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "~",
+            "color": "#449d48",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "!",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "security.workspace.trust.untrustedFiles": "open",
+    // убераю подсветку символов UNICODE
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "explorer.confirmDelete": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "window.menuBarVisibility": "toggle",
+    "remote.extensionKind": {
+        "GitHub.copilot": [
+            "ui"
+        ],
+        "GitHub.copilot-chat": [
+            "ui"
+        ],
+    },
+    "workbench.colorTheme": "One Monokai",
+}

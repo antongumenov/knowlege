@@ -1,7 +1,7 @@
-//_ bufio.READER
-//~ NewReader(r)
+//>> bufio.READER
+//<< NewReader(r)
 // возвращает буферизированный Reader c буфером 4096 байт
-//~ NewReaderSize(r, size)
+//<< NewReaderSize(r, size)
 // возвращает буферизированный Reader c буфером size
 
 // открывакм файл
@@ -10,20 +10,20 @@ file, _ := os.OpenFile(`1.txt`, os.O_RDONLY, 6660)
 // читать будет весь файл при первой попытке чтения из Reader
 reader := bufio.NewReader(file)
 
-//_ МЕТОДЫ СЧИТЫВАНИЯ READER
-//~ Read(p []byte)
+//>> МЕТОДЫ СЧИТЫВАНИЯ READER
+//<< Read(p []byte)
 // считывает срез байтов и возвращает количество прочитанных байтов
-//~ ReadByte()
+//<< ReadByte()
 // считывает один байт
-//~ ReadBytes(delim byte)
+//<< ReadBytes(delim byte)
 // считывает срез байтов из потока, пока не встретится байт delim
-//~ ReadLine()
+//<< ReadLine()
 // считывает строку в виде среза байт
-//~ ReadRune()
+//<< ReadRune()
 // считывает один объект типа rune
-//~ ReadSlice(delim byte)
+//<< ReadSlice(delim byte)
 // считывает срез байтов из потока, пока не встретится байт delim
-//~ ReadString(delim byte)
+//<< ReadString(delim byte)
 // считывает строку, пока не встретится байт delim
 
 // выводим построчно
@@ -36,8 +36,8 @@ fmt.Print(line) // И днём и ночью кот учёный
 line, _ = reader.ReadString('\n')
 fmt.Print(line) // Всё ходит по цепи кругом;
 
-//_ ДОП МЕТОДЫ READER
-//~ Buffered()
+//>> ДОП МЕТОДЫ READER
+//<< Buffered()
 // Этот метод возвращает int число,
 // указывающее количество байтов,
 // которые можно прочитать из буфера.
@@ -45,12 +45,12 @@ fmt.Print(line) // Всё ходит по цепи кругом;
 // сработает только после первой операции чтения
 fmt.Println(reader.Buffered()) // 1417
 
-//~ Discard(count)
+//<< Discard(count)
 // Этот метод отбрасывает указанное количество байтов.
 reader.Discard(1380)
 fmt.Println(reader.Buffered()) // 37
 
-//~ Peek(count)
+//<< Peek(count)
 // Этот метод возвращает указанное количество байтов,
 // не удаляя их из буфера,
 // то есть они будут возвращены последующими вызовами метода Read.
@@ -61,7 +61,7 @@ fmt.Print(line) //  мне сказки говорил.
 fmt.Println()
 file.Close()
 
-//~ Reset(reader)
+//<< Reset(reader)
 // Этот метод отбрасывает данные в буфере
 // и выполняет последующие чтения из указанного Reader.
 file, _ = os.OpenFile(`1.txt`, os.O_RDONLY, 6660)
@@ -71,6 +71,12 @@ line, _ = reader.ReadString('\n')
 fmt.Print(line)                // У лукоморья дуб зелёный;
 fmt.Println(reader.Buffered()) // 1553
 
-//~ Size()
+//<< Size()
 // Этот метод возвращает размер буфера, выраженный int.
 // fmt.Println(reader.Size()) // 4096
+
+//>> ЧТЕНИЕ ИЗ КОНСОЛИ
+reader := bufio.NewReader(os.Stdin)
+fmt.Print("Введите текст: ")
+text, _ := reader.ReadString('\n')
+fmt.Println(text)

@@ -1,17 +1,17 @@
-//_ СОЗДАНИЕ ЭНКОДЕРА В WRITER
-//~ NewEncoder(writer)
+//>> СОЗДАНИЕ ЭНКОДЕРА В WRITER
+//<< NewEncoder(writer)
 // кодирует JSON в указанный writer.
 // возвращает Encoder, который используется для записи в Writer
 file, _ := os.OpenFile(`4.txt`, os.O_RDWR|os.O_APPEND, 6660)
 encoder := json.NewEncoder(file)
 
-//_ МЕТОДЫ Encoder
-//~ Encode(val)
+//>> МЕТОДЫ Encoder
+//<< Encode(val)
 // кодирует указанное значение как JSON и записывает его в Writer.
-//~ SetEscapeHTML(on)
+//<< SetEscapeHTML(on)
 // принимает bool аргумент, который, если он равен true, кодирует символы,
 // экранирование которых в HTML было бы опасным. По умолчанию эти символы экранируются.
-//~ SetIndent(prefix, indent)
+//<< SetIndent(prefix, indent)
 // Этот метод задает префикс и отступ, которые применяются к имени каждого поля в
 // выходных данных JSON.
 encoder.Encode(true)    // true
@@ -26,7 +26,7 @@ encoder.Encode([3]int{10, 20, 30}) // [10,20,30]
 // мапа
 encoder.Encode(map[string]float64{"Kayak": 279, "Lifejacket": 49.95}) // {"Kayak":279,"Lifejacket":49.95}
 	
-//_ КОДИРОВАНИЕ СТРУКТУР
+//>> КОДИРОВАНИЕ СТРУКТУР
 // в структурах можно писать теги 
 // которые показывают как нужно отображать имена в JSON
 type Product struct {
@@ -46,11 +46,11 @@ dProd := DiscountedProduct{
 
 encoder.Encode(dProd) // {"name":"Sow","price":66.25,"doscount":10}
 
-//~ JSON теги
+//<< JSON теги
 	// `json:"-"` - пропуск поля
 	// `json:"product,omitempty"` - пропуск не назначеных полей, по умолчанию им присвоится null
 	// `json:",string"` - значение поля любого типа записать как строку
 
-//_ СОЗДАНИЕ ПОЛНОСТЬЮ НАСТРАЕВАЕМЫХ КОДИРОВОК
+//>> СОЗДАНИЕ ПОЛНОСТЬЮ НАСТРАЕВАЕМЫХ КОДИРОВОК
 // могу кодировать структуру как хочу
 // смотри PRO_GO стр 669

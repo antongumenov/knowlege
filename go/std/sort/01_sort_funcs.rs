@@ -1,27 +1,27 @@
-//_ СОРТИРОВКА СРЕЗОВ
-//~ Float64s(slice)
+//>> СОРТИРОВКА СРЕЗОВ
+//<< Float64s(slice)
 // сортирует float64 срез
 floats := []float64{279, 48.95, 19.50}
 fmt.Println(floats) // [279 48.95 19.5]
 sort.Float64s(floats)
 fmt.Println(floats) // [19.5 48.95 279]
 
-//~ Float64sAreSorted(slice)
+//<< Float64sAreSorted(slice)
 // можно ли сортировать срез
 fmt.Println(sort.Float64sAreSorted(floats)) // true
 
-//~ Ints(slice)
+//<< Ints(slice)
 // сортирует int срез
 ints := []int{9, 4, 2, -1, 10}
 fmt.Println(ints) // [9 4 2 -1 10]
 sort.Ints(ints)
 fmt.Println(ints) // [-1 2 4 9 10]
 
-//~ IntsAreSorted(slice)
+//<< IntsAreSorted(slice)
 // можно ли сортировать срез
 fmt.Println(sort.IntsAreSorted(ints)) // true
 
-//~ Strings(slice)
+//<< Strings(slice)
 // сортирует string срез
 strings := []string{"Kayak", "Lifejacket", "Stadium"}
 fmt.Println(strings)
@@ -32,11 +32,11 @@ if !sort.StringsAreSorted(strings) {
 	fmt.Println(strings)
 }
 
-//~ StringsAreSorted(slice)
+//<< StringsAreSorted(slice)
 // можно ли сортировать срез
 fmt.Println(sort.StringsAreSorted(strings)) // true
 
-//_ СОРТИРОВКА СЛАЙСОВ ПОЛЬЗОВАТЕЛЬСКИХ ТИПОВ
+//>> СОРТИРОВКА СЛАЙСОВ ПОЛЬЗОВАТЕЛЬСКИХ ТИПОВ
 // чтобы сортировать слайсов обьектов 
 // нужно реализовать интерфейс с названием Interface
 // а именно его три метода

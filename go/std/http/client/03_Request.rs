@@ -1,14 +1,14 @@
-//_ СТРУКТУРА Request
+//>> СТРУКТУРА Request
 // основные поля описаны в ../server/02_Request.rs
 // в структуре два замороченных поля
 // URL и Body, которые по факту структуры
 // по этому создаются тоже отдельно
 
-//_ СОЗДАНИЕ URL
+//>> СОЗДАНИЕ URL
 // самый простой способ создать url.URL
 reqURL, _ := url.Parse("http://localhost:5000/echo")    
 
-//_ СОЗДАНИЕ Body
+//>> СОЗДАНИЕ Body
 // поле Body содержит ReadCloser
 // то есть любой тип который реализует Reader и Closer
 // Если у меня есть метод Reader который не реализует Closer
@@ -30,7 +30,7 @@ json.NewEncoder(&builder).Encode(prod)
 
 body:=io.NopCloser(strings.NewReader(builder.String()))
 
-//_ СОЗДАНИЕ Request, литеральный синтаксис
+//>> СОЗДАНИЕ Request, литеральный синтаксис
 req := http.Request{
     Method: http.MethodGet,
     URL:    reqURL,
@@ -40,11 +40,11 @@ req := http.Request{
     Body: io.NopCloser(strings.NewReader(builder.String())),
 }
 
-//_ КОНСТРУКТОРЫ
-//~ NewRequest(method, url, reader)
+//>> КОНСТРУКТОРЫ
+//<< NewRequest(method, url, reader)
 // создает Request без контекста
 req, err := http.NewRequest(http.MethodPost, "http://localhost:5000/echo", io.NopCloser(strings.NewReader(builder.String())))
 
-//~ NewRequestWithContext(context, method, url, reader)
+//<< NewRequestWithContext(context, method, url, reader)
 // создает Request с контекстом
 req, err := http.NewRequestWithContext(context.Background(), http.MethodPost, "http://localhost:5000/echo", io.NopCloser(strings.NewReader(builder.String())))

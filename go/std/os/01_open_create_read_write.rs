@@ -1,24 +1,24 @@
-//_ ПРЯМОЕ ЧТЕНИЕ ФАЙЛА В СРЕЗ
-//~ ReadFile(name)
+//>> ПРЯМОЕ ЧТЕНИЕ ФАЙЛА В СРЕЗ
+//<< ReadFile(name)
 // открывает и читает файл в срез
 slice, _ := os.ReadFile(`4.txt`)
 fmt.Println(string(slice)) // {"name":"Sow","price":66.25,"doscount":10}
 
-//_ ПРЯМАЯ ЗАПИСЬ В ФАЙЛ
-//~ WriteFile(name, slice, modePerms)
+//>> ПРЯМАЯ ЗАПИСЬ В ФАЙЛ
+//<< WriteFile(name, slice, modePerms)
 // создает, записывавет или переписывает файл name
 // записывая slice
 // c режимом modePerms
 os.WriteFile(`5.txt`, []byte("holla"), 0666) // holla
 
-//_ ОТКРЫТИЕ С ВОЗВРАЩЕНИЕМ СТРУКТУРЫ File
-//~ Open(name)
+//>> ОТКРЫТИЕ С ВОЗВРАЩЕНИЕМ СТРУКТУРЫ File
+//<< Open(name)
 // открывает файл для чтения,возвращая File
 file, _ := os.Open(`3.txt`)
 file.Close()
 
-//_ ОТКРЫТИЕ И СОЗДАНИЕ 
-//~ OpenFile(name, flag, modePerms)
+//>> ОТКРЫТИЕ И СОЗДАНИЕ 
+//<< OpenFile(name, flag, modePerms)
 // открывает файл с modePerms как правило это 0666
 // и флагами:
 // os.O_APPEND - все записывать в конец, не переписывая содержание
@@ -31,18 +31,18 @@ file.Close()
 // os.O_WRONLY - только для запись
 file, _ = os.OpenFile(`3.txt`, os.O_RDONLY|O_CREATE, 0666)
 
-//~ Create(name)
+//<< Create(name)
 // то же самое что OpenFile с флагами O_RDWR|O_CREATE|O_TRUNC
 
-//~ CreateTemp(dirName, fileName)
+//<< CreateTemp(dirName, fileName)
 // создает и открывает файл с флагами O_RDWR, O_CREATE и O_EXCL
 // в каталоге dirName
 // если dirName пустая строка, то создаст файл в Temp
 // добавив случайную строку вместо звездочки или к концу имени
 // файл не удаляется при закрытии
 
-//_ ЧТЕНИЕ с File
-//~ Read(b)
+//>> ЧТЕНИЕ с File
+//<< Read(b)
 // читает из File в срез
 b := make([]byte, 100)
 file.Read(b)
@@ -51,7 +51,7 @@ fmt.Println(string(b))
 // second string
 // third string
 
-//~ ReadAt(slice, offset)
+//<< ReadAt(slice, offset)
 // читает из File в срез с отступом offset
 file.ReadAt(b, 10)
 fmt.Println(string(b))
@@ -60,24 +60,24 @@ fmt.Println(string(b))
 // third string
 
 
-//_ ЗАПИСЬ с File
+//>> ЗАПИСЬ с File
 file, _ := os.OpenFile(`6.txt`, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
-//~ Write(slice)
+//<< Write(slice)
 // пишет slice в File
 file.Write([]byte("holla"))
 
-//~ WriteAt(slice, offset)
+//<< WriteAt(slice, offset)
 // пишет slice в File начиная с отступом offset
 // с флаго O_APPEND не сработает
 file.WriteAt([]byte("HOLLA\n"), 5)
 
-//~ WriteString(str)
+//<< WriteString(str)
 // записывает строку в файл
 file.WriteString("WRITE_STRING")
 
-//_ СМЕЩЕНИЯ ТОЧКИ ДЛЯ ЧТЕНИЯ И ЗАПИСИ
-//~ Seek(offset, how)
+//>> СМЕЩЕНИЯ ТОЧКИ ДЛЯ ЧТЕНИЯ И ЗАПИСИ
+//<< Seek(offset, how)
 // пеермещает точку считывания
 // offset - сколько сдвинуться
 // how:
@@ -90,5 +90,5 @@ fmt.Println(string(b))
 // string
 // third string
 
-//_ УДАЛЕНИЕ ФАЙЛА
+//>> УДАЛЕНИЕ ФАЙЛА
 os.Remove("example.txt")

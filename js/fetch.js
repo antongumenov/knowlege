@@ -1,4 +1,4 @@
-//_ FETCH GET запрос
+//>> FETCH GET запрос
 // на клиенте можно не писать абсолютный адрес, можно только относительный
 let res = await fetch('/api/login')
 
@@ -33,7 +33,7 @@ let formData = await res.formData()
 
 // и еще кое что (смотри в коде пакета)
 
-//~ установка mode запроса
+//<< установка mode запроса
 // можно установить ожидаемый тип
 // "same-origin" - запросы на другой origin будут отклонены
 // "cors" - то же самое, но добавляет возможность делать запросы к сторонним сайтам и указывать cors заголовки
@@ -42,7 +42,7 @@ let formData = await res.formData()
 res = await fetch('/api/login', { mode: 'cors' })
 
 
-//_ FETCH POST запрос
+//>> FETCH POST запрос
 res = await fetch('/api/login', {
     method: 'POST',
     headers: {

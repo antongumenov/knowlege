@@ -1,4 +1,4 @@
-//_ contenteditable
+//>> contenteditable
 // я могу сделать div полем ввода
 // и могу вводить в него значения
 // для элемента contenteditable

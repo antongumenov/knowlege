@@ -1,3 +1,5 @@
-//~ для генерации фейковых данных использовать это
+//>> URL for fakes
 github.com/icrowley/fake
 github.com/brianvoe/gofakeit
+
+//>> URL for mocks

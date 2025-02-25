@@ -1,4 +1,4 @@
-//_ СТРУКТУРА Cookie
+//>> СТРУКТУРА Cookie
 // содержит следующие поля для конфигурирования cookie
 // Name - имя куки, строка
 // Value - значение, строка
@@ -14,8 +14,8 @@
 // 		- SameSiteStrictMode - отрпавит куки только если коиент на этом сайте
 // 		- SameSiteNoneMode - куки полетят везде, используется только с параметром Strict=true
 
-//_ УСТАНОВКА Cookie
-//~ SetCookie(writer, cookie)
+//>> УСТАНОВКА Cookie
+//<< SetCookie(writer, cookie)
 http.SetCookie(writer, &http.Cookie{
 	Name:     "counter",
 	Value:    strconv.Itoa(500),
@@ -23,13 +23,13 @@ http.SetCookie(writer, &http.Cookie{
 	HttpOnly: true,
 })
 
-//_ ЧТЕНИЕ Сookies
-//~ Cookie(name)
+//>> ЧТЕНИЕ Сookies
+//<< Cookie(name)
 // возвращает куку по имени
 cookie, _ := request.Cookie(`counter`)
 io.WriteString(writer, cookie.Value)
 
-//~ Cookies()
+//<< Cookies()
 // возвращает срез кук
 cookies := request.Cookies()
 io.WriteString(writer, cookies[0].Name)

@@ -1,4 +1,4 @@
-//_ СОЗДАНИЕ ШАБЛОНА ИЗ СТРОКИ
+//>> СОЗДАНИЕ ШАБЛОНА ИЗ СТРОКИ
 type SomeStruct struct{
     Message string
 }
@@ -12,26 +12,26 @@ my_template, err:= template.New("MessTEmplate").Parse(template_string)
 // пишу шаблон в Writer и передаю в него данные
 err = my_template.Execute(os.Stdout, &some_struct)
 
-//_ СОЗДАНИЕ ШАБЛОНА ИЗ ФАЙЛА
+//>> СОЗДАНИЕ ШАБЛОНА ИЗ ФАЙЛА
 // создаем шаблон из файла, имя шаблона - название файла с расширением
 t,error:= template.ParseFiles("templates/index.html")
 // пишу шаблон в Writer и передаю в него данные
 t.Execute(os.Stdout, &some_struct)
 
-//_ СОЗДАНИЕ ШАБЛОНОВ ИЗ НЕСКОЛЬКИХ ФАЙЛОВ
+//>> СОЗДАНИЕ ШАБЛОНОВ ИЗ НЕСКОЛЬКИХ ФАЙЛОВ
 // загружаю сразу несколько файлов, имя шаблона - название файла с расширением
 t, err:= template.ParseFiles("templates/layout.html", "templates/index.html")
 // пишу шаблон в Writer по имени и передаю в него данные
 all_t.ExecuteTemplate(os.Stdout,"index.html" ,&some_struct)
 
-//_ ПОИСК ФАЙЛОВ ШАБЛОНОВ ПО ПАТТЕРНУ
+//>> ПОИСК ФАЙЛОВ ШАБЛОНОВ ПО ПАТТЕРНУ
 // с этой функцией нужно быть акуратным, если шаблон не спарсится
 all_t, err := template.ParseGlob("templates/*.html")
 // найдем нужный
 selected_templated := all_еemplates.Lookup("template.html")
 selected_templated.Execute(os.Stdout ,&some_struct)
 
-//_ ОБЪЕДИНЕНЕИЕ НЕСКОЛЬКИХ БЛОКОВ В ОДИН ШАБЛОН
+//>> ОБЪЕДИНЕНЕИЕ НЕСКОЛЬКИХ БЛОКОВ В ОДИН ШАБЛОН
 // когда есть родитель и вложенные шаблоны 
 // загужаем так
 t, err:= template.ParseFiles("templates/layout.html", "templates/index.html")

@@ -1,10 +1,10 @@
-//_ ФОРМАТИРОВАНИЕ СТРОКИ ДАТЫ
+//>> ФОРМАТИРОВАНИЕ СТРОКИ ДАТЫ
 // дата в шаблоне должна быть 2 января 2006 года 15:04
 layout := "Day: 02 Month: Jan Year: 2006"
 timeNow := time.Now()
 fmt.Println(timeNow.Format(layout)) // Day: 04 Month: Aug Year: 2024
 
-//~ встроенные шаблоны
+//<< встроенные шаблоны
 // 	ANSIC			Mon Jan _2 15:04:05 2006
 // 	UnixDate		Mon Jan _2 15:04:05 MST 2006
 // 	RubyDate		Mon Jan 02 15:04:05 -0700 2006
@@ -23,16 +23,46 @@ fmt.Println(timeNow.Format(layout)) // Day: 04 Month: Aug Year: 2024
 
 fmt.Println(timeNow.Format(time.Kitchen)) // 5:44PM
 
-//_ РАЗБОР ЗНАЧЕНИЙ ВРЕМЕНИ ИЗ СТРОК
-//~ Parse(layout, str)
+//>> РАЗБОР ЗНАЧЕНИЙ ВРЕМЕНИ ИЗ СТРОК
+//<< Parse(layout, str)
 // парсит строку по шаблону
 layout = "2006-Jan-02"
 d := "2015-Jun-02"
 timeParsed, _ := time.Parse(layout, d)
 fmt.Println(timeParsed) // 2015-06-02 00:00:00 +0000 UTC
 
-//~ ParseInLocation(layout, str, location)
+//<< ParseInLocation(layout, str, location)
 // парсит строку по шаблону и локации
 london, _ := time.LoadLocation("Europe/London")
 timeParsed, _ = time.ParseInLocation(layout, d, london)
 fmt.Println(timeParsed) // 2015-06-02 00:00:00 +0100 BST
+
+//<< КОНСТАНТЫ ФОРМАТИРОВАНИЯ
+const (
+    stdLongMonth      = "January"
+    stdMonth          = "Jan"
+    stdNumMonth       = "1"
+    stdZeroMonth      = "01"
+    stdLongWeekDay    = "Monday"
+    stdWeekDay        = "Mon"
+    stdDay            = "2"
+    stdUnderDay       = "_2"
+    stdZeroDay        = "02"
+    stdHour           = "15"
+    stdHour12         = "3"
+    stdZeroHour12     = "03"
+    stdMinute         = "4"
+    stdZeroMinute     = "04"
+    stdSecond         = "5"
+    stdZeroSecond     = "05"
+    stdLongYear       = "2006"
+    stdYear           = "06"
+    stdPM             = "PM"
+    stdpm             = "pm"
+    stdTZ             = "MST"
+    stdISO8601TZ      = "Z0700"  // prints Z for UTC
+    stdISO8601ColonTZ = "Z07:00" // prints Z for UTC
+    stdNumTZ          = "-0700"  // always numeric
+    stdNumShortTZ     = "-07"    // always numeric
+    stdNumColonTZ     = "-07:00" // always numeric
+)

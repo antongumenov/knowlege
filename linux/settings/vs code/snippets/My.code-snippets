@@ -1,0 +1,88 @@
+{
+    "p": {
+        "scope": "go",
+        "prefix": "p",
+        "body": "fmt.Println($0)",
+    },
+    "pf": {
+        "scope": "go",
+        "prefix": "pf",
+        "body": "fmt.Printf(\"$0\")",
+    },
+    "e": {
+        "scope": "go",
+        "prefix": "e",
+        "body": "errors.New(\"$0\")",
+    },
+    "rv": {
+        "scope": "go",
+        "prefix": "rv",
+        "body": "return $0",
+    },
+    "rn": {
+        "scope": "go",
+        "prefix": "rn",
+        "body": "return nil",
+    },
+    "re": {
+        "scope": "go",
+        "prefix": "re",
+        "body": "return err",
+    },
+    "rec": {
+        "scope": "go",
+        "prefix": "ren",
+        "body": "return errors.New(\"$0\")",
+    },
+    "rvn": {
+        "scope": "go",
+        "prefix": "rvn",
+        "body": "return $0, nil",
+    },
+    "rve": {
+        "scope": "go",
+        "prefix": "rve",
+        "body": "return $0, err",
+    },
+    "rvec": {
+        "scope": "go",
+        "prefix": "rvec",
+        "body": "return $0, errors.New(\"$0\")",
+    },
+    "s": {
+        "scope": "go",
+        "prefix": "s",
+        "body": [
+            "type $1 struct{",
+            "   $2",
+            "}",
+        ],
+    },
+    "i": {
+        "scope": "go",
+        "prefix": "i",
+        "body": [
+            "type $1 interface{",
+            "   $2",
+            "}",
+        ],
+    },
+    "me": {
+        "scope": "go",
+        "prefix": "me",
+        "body": [
+            "func (res *$1) $2($3) $4 {",
+            "   $5",
+            "}",
+        ],
+    },
+    "f": {
+        "scope": "go",
+        "prefix": "f",
+        "body": [
+            "func $1($2) $3 {",
+            "   $4",
+            "}",
+        ],
+    },
+}

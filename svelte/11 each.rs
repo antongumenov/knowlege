@@ -1,4 +1,4 @@
-//_ ПЕЕРБОР МАССИВОВ
+//>> ПЕЕРБОР МАССИВОВ
 <script>
 	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 	let selected = colors[0];
@@ -15,14 +15,14 @@
 	{/each}
 </div>
 
-//_ EACH ELSE
+//>> EACH ELSE
 {#each todos as todo}
 	<p>{todo.text}</p>
 {:else}
 	<p>No tasks today!</p>// если массив пустой
 {/each}
 
-//_ УСТАКНОВКА КЛЮЧЕЙ
+//>> УСТАКНОВКА КЛЮЧЕЙ
 // если нужно добавлять или удалять какие то элементы
 // для того чтобы svelte понял с каким элементом работаем 
 // нужно проставить ключи

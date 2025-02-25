@@ -1,18 +1,18 @@
-//_ УСТАНОВКА И СОЗДАНИЕ ПРОЕКТА
+//>> УСТАНОВКА И СОЗДАНИЕ ПРОЕКТА
 
-//~ стравлю Ноду
+//<< стравлю Ноду
 // paru -S nodejs
 // paru -S npm
 
-//~ создаю проект svelteKit
+//<< создаю проект svelteKit
 npx sv create myappname
 cd myappname
 npm run dev -- --open
 
-//~ создание проекта на чистом svelte
+//<< создание проекта на чистом svelte
 npm create vite@latest
 
-//_ РАБОТА С GO CO СТАТИКОЙ
+//>> РАБОТА С GO CO СТАТИКОЙ
 // это канает только для статических страниц
 // суть следующая
 // я пишу сервер, отдающий статику, с любым API
@@ -20,10 +20,10 @@ npm create vite@latest
 
 // для этого мен нужно установить генератор статики
 
-//~ adapter-static
+//<< adapter-static
 npm i -D @sveltejs/adapter-static
 
-//~ настройка svelte.config.js
+//<< настройка svelte.config.js
 import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -38,13 +38,13 @@ const config = {
 
 export default config;
 
-//~ в каждую страницу добавляю пререндер
+//<< в каждую страницу добавляю пререндер
 // для того чтобы сгенерировать статический файл
 // создаю для каждого роута +page.js
 // и в него записываю
 export const prerender = true;
 
-//~ разработка и генерация статики
+//<< разработка и генерация статики
 // для того чтобы сгенерировать статику
 npm run build
 
@@ -52,14 +52,14 @@ npm run build
 npm run dev -- --open
 
 
-//_ НАСТРОЙКА TAILWIND чисто в SVELTE KIT
+//>> НАСТРОЙКА TAILWIND чисто в SVELTE KIT
 // https://tailwindcss.com/docs/guides/sveltekit	
 
-//~ ставлю
+//<< ставлю
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
-//~ правлю svelte.config.js
+//<< правлю svelte.config.js
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /** @type {import('@sveltejs/kit').Config} */
@@ -75,7 +75,7 @@ const config = {
 
 export default config;
 
-//~ правлю tailwind.config.js
+//<< правлю tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -86,18 +86,18 @@ export default {
   };
   
 
-//~ ./src/app.css
+//<< ./src/app.css
 // добавляю файл в корень
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-//~ добавляю стили в +layout.svelte
+//<< добавляю стили в +layout.svelte
 <script>
   import "../app.css";
 </script>
 
 <slot />
 
-//~ просто работаю
+//<< просто работаю
 npm run dev

@@ -1,4 +1,4 @@
-//_ LABEL
+//>> LABEL
 // переход по метке
 counter := 0
 target: fmt.Println("Counter", counter)

@@ -1,52 +1,52 @@
-//_ ВАЖНО
+//>> ВАЖНО
 // все эти функции работают с float64
 
-//_ ЗНАКИ
-//~ Abs(val)
+//>> ЗНАКИ
+//<< Abs(val)
 // абсолютное число, число без знака
 fmt.Println(math.Abs(17.35))  // 17.35
 fmt.Println(math.Abs(-17.35)) // 17.35
 
-//~ Copysign(x,y)
+//<< Copysign(x,y)
 // копирование знаков для x от y
 fmt.Println(math.Copysign(17.35, -7)) // -17.35
 fmt.Println(math.Copysign(-17.35, 7)) // 17.35
 
-//_ ОКРУГЛЕНИЕ ЗНАЧЕНИЙ
-//~ Ceil(val)
+//>> ОКРУГЛЕНИЕ ЗНАЧЕНИЙ
+//<< Ceil(val)
 // округление до большего
 fmt.Println(math.Ceil(15.55)) // 16
 fmt.Println(math.Ceil(15.45)) // 16
 
-//~ Floor(val)
+//<< Floor(val)
 // округление до меньшего
 fmt.Println(math.Floor(15.55)) // 15
 fmt.Println(math.Ceil(15.45))  // 16
 
-//~ Round(val)
+//<< Round(val)
 // округление до ближайшего, средние значения в большую
 fmt.Println(math.Round(15.55)) // 16
 fmt.Println(math.Round(15.50)) // 16
 
-//~ RoundToEven(val)
+//<< RoundToEven(val)
 // округление до ближайшего, средние значения в четную сторону
 fmt.Println(math.RoundToEven(14.55)) // 15
 fmt.Println(math.RoundToEven(14.50)) // 14
 fmt.Println(math.RoundToEven(13.50)) // 14
 
-//_ БОЛЬШОЕ И МЕНЬШЕЕ
-//~ Max(x,y)
+//>> БОЛЬШОЕ И МЕНЬШЕЕ
+//<< Max(x,y)
 fmt.Println(math.Max(3, 4)) // 4
 
-//~ Min(x,y)
+//<< Min(x,y)
 fmt.Println(math.Min(3, 4)) // 3
 
-//_ ВОЗВЕДЕНИЕ В СТЕПЕНЬ
-//~ Pow(x, y)
+//>> ВОЗВЕДЕНИЕ В СТЕПЕНЬ
+//<< Pow(x, y)
 // х в степень у
 fmt.Println(math.Pow(3, 4)) // 81
 
-//_ КОНСТАНТЫ МАКСИМАЛЬНЫХ ЗНАЧЕНИЙ
+//>> КОНСТАНТЫ МАКСИМАЛЬНЫХ ЗНАЧЕНИЙ
 fmt.Println(math.MaxInt8)                //127
 fmt.Println(math.MinInt8)                //-128
 fmt.Println(math.MaxInt16)               //32767

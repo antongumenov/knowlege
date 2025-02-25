@@ -1,4 +1,4 @@
-//_ FOR
+//>> FOR
 for (int i = 0; i < 9; i++)
 {
     printf("%d * %d = %d \n", i, i, i * i);
@@ -12,7 +12,7 @@ for (; i < 9;)
     i++;
 }
 
-//_ DO WHILE
+//>> DO WHILE
 int i = 6;
 do
 {
@@ -20,7 +20,7 @@ do
     i--;
 } while (i > 0);
 
-//_ WHILE
+//>> WHILE
 int i = 6;
 while (i > 0)
 {
@@ -28,6 +28,6 @@ while (i > 0)
     i--;
 }
 
-//_ ОПЕРАТОРЫ
+//>> ОПЕРАТОРЫ
 // continue - на следующий цикл
 // break - выйти из цикла

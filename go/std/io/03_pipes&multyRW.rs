@@ -1,5 +1,5 @@
-//_ СПЕЦИАЛИЗИРОВАННЫЕ ФУНКЦИИ ДЛЯ ЧТЕНИЯ И ЗАПИСИ
-//~ Pipe()
+//>> СПЕЦИАЛИЗИРОВАННЫЕ ФУНКЦИИ ДЛЯ ЧТЕНИЯ И ЗАПИСИ
+//<< Pipe()
 // то же самое что и каналы, только оперируют слайсами
 // возвращает концы трубы pipeReader и pipeWriter
 // в одном месте программы я могу писать в pipeWriter
@@ -17,7 +17,7 @@ b := make([]byte, 10)
 pipeReader.Read(b)
 fmt.Println(string(b)) // jane
 
-//~ MultiReader(...readers)
+//<< MultiReader(...readers)
 // собирает данные из нескольких Reader и позволяет читать их
 r1 := strings.NewReader("Kayak")
 r2 := strings.NewReader("Lifejacket")
@@ -30,7 +30,7 @@ fmt.Println(string(b[:i])) // Lifejacket
 i, _ = concatReader.Read(b)
 fmt.Println(string(b[:i])) // Canoe
 
-//~ MultiWriter(...writers)
+//<< MultiWriter(...writers)
 // позволяет обьединить нескольких Writer
 // писать будет одни данные во все Writer
 var w1 strings.Builder
@@ -42,7 +42,7 @@ fmt.Println(w1.String()) // Katty
 fmt.Println(w2.String()) // Katty
 fmt.Println(w3.String()) // Katty
 
-//~ TeeReader(multiReader, writer)
+//<< TeeReader(multiReader, writer)
 // читает из нескольких Reader в один Writer
 r1 = strings.NewReader("Kayak")
 r2 = strings.NewReader("Lifejacket")
@@ -57,7 +57,7 @@ teeReader.Read(b)            // читаю из второго Reader в Writer
 teeReader.Read(b)            // читаю из третьего Reader в Writer
 fmt.Println(writer.String()) // KayakLifejacketCanoe
 
-//~ LimitReader(r, limit)
+//<< LimitReader(r, limit)
 // ограничивает количество данных которые можно считывать с MultiReader
 r1 = strings.NewReader("Kayak")
 r2 = strings.NewReader("Lifejacket")

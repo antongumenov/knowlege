@@ -1,4 +1,4 @@
-//_ НЕПРАВИЛЬНЫЕ ГЛАГОЛЫ
+//>> НЕПРАВИЛЬНЫЕ ГЛАГОЛЫ
 arise	            arose	            arisen	            подниматься
 awake	            awoke	            awoken	            пробуждать
 be                  was (were)	        been	            быть

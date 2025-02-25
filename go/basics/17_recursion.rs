@@ -1,4 +1,4 @@
-//_ РЕКУРСИЯ
+//>> РЕКУРСИЯ
 // так
 func factorial(n uint) uint{
  

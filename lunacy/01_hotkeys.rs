@@ -1,24 +1,24 @@
-//_ HOTKEYS
-//~ movement
+//>> HOTKEYS
+//<< movement
 // shift + scroll - move horisontaly
 // alt + scroll - move verticaly
 
-//~ zoom
+//<< zoom
 // ctrl + scroll - zoom
 // +,- - 2x zoom
 // ctrl + 1 - fit canvas
 // ctrl + 2 - fit frame
 
-//~ frames
+//<< frames
 // a,f - new frame
 // end - goto next frame
 // home - goto previous frame
 
-//~ layer
+//<< layer
 // ctrl + shift + [ - send to back
 // ctrl + shift + ] - bring to front
 
-//~ drawing
+//<< drawing
 // L - line
 // LL - arrow
 // O - oval
@@ -39,20 +39,20 @@
 // W - dropdown
 // Y - component
 
-//~ objects
+//<< objects
 // ctrl + left mouse / double left mouse - select objects
 // ctrl + arrow - resize object
 // ctrl + shift + arrow - resize 10px step
 // shift + arrow - move object
 // alt + drag / ctrl + d - duplicate obgect 
 
-//~ styles
+//<< styles
 //! i can save style of object and reuse it in style section in right panel
 // I - пипетка
 // ctrl + alt + C - copy layer styles
 // ctrl + alt + V - paste layer styles
 
-//~ mask
+//<< mask
 // put mask to back and image to mask to front 
 // select both 
 // and ctrl + M  

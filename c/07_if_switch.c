@@ -1,4 +1,4 @@
-//_ IF
+//>> IF
 
 int x = 60;
 
@@ -28,7 +28,7 @@ else
     printf("x is equal 60 \n");
 }
 
-//_ SWITCH
+//>> SWITCH
 // break пишем по любому
 switch (x)
 {
@@ -46,5 +46,5 @@ default:
     break;
 }
 
-//_ ТЕРАНРНЫЙ ОПЕРАТОР
+//>> ТЕРАНРНЫЙ ОПЕРАТОР
 int z = x > y ? x - y : x + y;

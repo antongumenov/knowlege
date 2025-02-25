@@ -1,13 +1,13 @@
-//_ ЛОКАЦИИ
-//~ LoadLocation(name)
+//>> ЛОКАЦИИ
+//<< LoadLocation(name)
 // создает time.Location по строке локации
 saratov, _ := time.LoadLocation("Europe/Saratov")
 fmt.Println(saratov) // Europe/Saratov
 
-//~ LoadLocationFromTZData(name, data)
+//<< LoadLocationFromTZData(name, data)
 // нахуй
 
-//~ FixedZone(name, offset)
+//<< FixedZone(name, offset)
 // создает time.Location по строке локации и смещение от указанного пояса
 // name - название часового пояса
 layout := "02 Jan 06 15:04"

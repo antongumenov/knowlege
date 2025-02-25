@@ -17,3 +17,9 @@ alt + j - list.colaps
 alt + ; - list.expand
 
 alt + d - delete
+
+ctrl + space - toggle exploredr
+r - remaneFile
+n - newFile
+f - newFolder
+t - terminal

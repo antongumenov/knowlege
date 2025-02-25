@@ -1,6 +1,6 @@
-//_ ТЕГИ
+//>> ТЕГИ
 
-//_ @html
+//>> @html
 // когда нужно рендерить html напрямую
 <script>
 	let string = `here's some <strong>HTML!!!</strong>`;
@@ -8,7 +8,7 @@
 
 <p>{@html string}</p>
 
-//_ @render
+//>> @render
 // рендерить сниппет
 {#snippet sum(a, b)}
 	<p>{a} + {b} = {a + b}</p>
@@ -22,14 +22,14 @@
 // можно рендерить в зависимости от переменной
 {@render (cool ? coolSnippet : lameSnippet)()}
 
-//_ @const
+//>> @const
 // позволяет определить локальную переменную в шаблоне
 {#each boxes as box}
 	{@const area = box.width * box.height}
 	{box.width} * {box.height} = {area}
 {/each}
 
-//_ @debug
+//>> @debug
 // при изменении значения выводит его в консоль
 // и приостанавливает выполнение если открыт dev tools
 {@debug user}

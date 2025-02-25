@@ -1,12 +1,12 @@
-//_ ПОСТРОЕНИЕ И ГЕНЕРАЦИЯ СТРОК
-//~ Join(slice, sep)
+//>> ПОСТРОЕНИЕ И ГЕНЕРАЦИЯ СТРОК
+//<< Join(slice, sep)
 // слайс в строку через разделитель
 fmt.Println(strings.Join([]string{"I", "Am", "MAN"}, "_")) // I_Am_MAN
-//~ Repeat(s, count)
+//<< Repeat(s, count)
 // вернет строку, повторяя строку s count раз
 fmt.Println(strings.Repeat("MAN", 7)) // MANMANMANMANMANMANMAN
 
-//_ СТРОИТЕЛЬНЫЕ СТРОКИ
+//>> СТРОИТЕЛЬНЫЕ СТРОКИ
 // набор функций типа strings.Builder
 // для построения строк
 

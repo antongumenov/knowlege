@@ -1,7 +1,7 @@
-//_ ВЫПОЛНЕНИЕ ЗАПРОСОВ, НЕ ТРЕБУЮЩИХ ВОЗВРАТА ЗНАЧЕНИЙ
+//>> ВЫПОЛНЕНИЕ ЗАПРОСОВ, НЕ ТРЕБУЮЩИХ ВОЗВРАТА ЗНАЧЕНИЙ
 db, _ := sql.Open(`sqlite3`, `products.db`)
 
-//~ Exec(query, ...args)
+//<< Exec(query, ...args)
 // Eхec возвращает Result
 // который имеет 2 метода для работы с результатом
 // RowsAffected() - визвращает количество строк затронутых инструкцией
@@ -22,10 +22,10 @@ for rows.Next() {
     fmt.Println(name, category, price)
 }
 
-//_ ИСПОЛЬЗОВАНИЕ ПОДГОТОВЛЕННЫХ ОПЕРАТОРОВ
+//>> ИСПОЛЬЗОВАНИЕ ПОДГОТОВЛЕННЫХ ОПЕРАТОРОВ
 //  тупо готовлю и сохраняю запросы
 
-//~ Prepare(query)
+//<< Prepare(query)
 // возвращает подготовленнуб структуру запроса Stmt и ошибку
 // с нимим можно работать пока не вызван метод Close()
 
@@ -34,10 +34,10 @@ selectOne, _ := db.Prepare("SELECT Name, Price FROM Products WHERE Id=?")
 insertNewCategory, _ := db.Prepare("INSERT INTO Categories (Name) VALUES (?)")
 // changeProductCaregory, _ := db.Prepare("UPDATE Products SET Category = ? WHERE Id = ?")
 
-//_ МЕТОДЫ Stmt
+//>> МЕТОДЫ Stmt
 // применяются те же функции что и в запросе через bd
 
-//~ Query(...vals)
+//<< Query(...vals)
 // запросы на много строк
 rows, _ := selectAll.Query()
 for rows.Next() {
@@ -49,7 +49,7 @@ for rows.Next() {
 	fmt.Println(Id, Name, Category, Price)
 }
 
-//~ QueryRow(..vals)
+//<< QueryRow(..vals)
 // запросы на 1 строку
 row := selectOne.QueryRow(4)
 var Name string
@@ -57,7 +57,7 @@ var Price float64
 row.Scan(&Name, &Price)
 fmt.Println(Name, Price)
 
-//~ Exec(..vals)
+//<< Exec(..vals)
 // запросы не втравку и изменение
 insertNewCategory.Exec("Balls")
 rows, _ = db.Query("SELECT Name FROM Categories")
@@ -67,5 +67,5 @@ for rows.Next() {
 	fmt.Println(Name)
 }
 
-//~ Close()
+//<< Close()
 // закрытие оператора

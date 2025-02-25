@@ -1,4 +1,4 @@
-//_ КОНСТАНТЫ DURATION
+//>> КОНСТАНТЫ DURATION
 // time.Hour
 // time.Minute
 // time.Second
@@ -6,7 +6,7 @@
 // time.Microsecond
 // time.Nanosecond
 
-//_ DURATION В ЕДЕНИЦАХ
+//>> DURATION В ЕДЕНИЦАХ
 dur := time.Hour + (30 * time.Minute)
 fmt.Println()
 fmt.Println(dur.Hours())             // 1.5
@@ -17,12 +17,12 @@ fmt.Println(dur.Nanoseconds())       // 5400000000000
 fmt.Println(dur.Round(time.Hour))    // 2h0m0s
 fmt.Println(dur.Truncate(time.Hour)) // 1h0m0s
 
-//_ DURATION ОТНОСТИЕЛЬНО ВРЕМЕНИ
+//>> DURATION ОТНОСТИЕЛЬНО ВРЕМЕНИ
 timeNow := time.Now()
 fmt.Println(time.Since(timeNow.Add(-555665))) // 788.312µs
 fmt.Println(time.Until(timeNow.Add(-555665))) // -794.109µs
 
-//_ DURATION ИЗ СТРОК
+//>> DURATION ИЗ СТРОК
 // h - Эта единица обозначает часы.
 // m - Эта единица обозначает минуты.
 // s - Эта единица обозначает секунды.

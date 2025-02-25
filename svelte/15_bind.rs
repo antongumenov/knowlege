@@ -1,4 +1,4 @@
-//_ BIND
+//>> BIND
 // меняет стейт при изменени и значения 
 // в полях ввода
 // в чекбоксах
@@ -6,7 +6,7 @@
 // и тп
 // и наоборот
 
-//_ <input bind:value>
+//>> <input bind:value>
 <script>
 	let message = $state('hello');
 </script>
@@ -14,13 +14,13 @@
 <input bind:value={message} />
 <p>{message}</p>
 
-//_ <input bind:checked>
+//>> <input bind:checked>
 <label>
 	<input type="checkbox" bind:checked={accepted} />
 	Accept terms and conditions
 </label>
 
-//_ <input bind:group>
+//>> <input bind:group>
 <script>
 	let tortilla = 'Plain';
 
@@ -39,7 +39,7 @@
 <input type="checkbox" bind:group={fillings} value="Cheese" />
 <input type="checkbox" bind:group={fillings} value="Guac (extra)" />
 
-//_ <input bind:files>
+//>> <input bind:files>
 <script>
 	let files = $state();
 
@@ -52,7 +52,7 @@
 <input accept="image/png, image/jpeg" bind:files id="avatar" name="avatar" type="file" />
 <button onclick={clear}>clear</button>
 
-//_ <select bind:value>
+//>> <select bind:value>
 <select bind:value={selected}>
 	<option value={a}>a</option>
 	<option value={b}>b</option>
@@ -74,7 +74,7 @@ select multiple bind:value={fillings}>
 	<option>Guac (extra)</option>
 </select>
 
-//_ <audio>
+//>> <audio>
 // можно забайнтить
 // двунаправленно
 currentTime
@@ -92,30 +92,30 @@ seeking
 ended
 readyState
 
-//_ <video>
+//>> <video>
 // то же самое что audio плюс только чтение
 videoWidth
 videoHeight
 
-//_ <img>
+//>> <img>
 // только чтение
 naturalWidth
 naturalHeight
 
-//_ <details bind:open>
+//>> <details bind:open>
 <details bind:open={isOpen}>
 	<summary>How do you comfort a JavaScript bug?</summary>
 	<p>You console it.</p>
 </details>
 
-//_ ПРИВЯЗКИ К КОНТЕНТУ ТЕГА
+//>> ПРИВЯЗКИ К КОНТЕНТУ ТЕГА
 // можно привязаться к контенту тега
 innerHTML
 innerText
 textContent
 <div contenteditable="true" bind:innerHTML={html} />
 
-//_ ПРИВЯЗКА К РАЗМЕРАМ
+//>> ПРИВЯЗКА К РАЗМЕРАМ
 // можно привязаться к следующим
 clientWidth
 clientHeight
@@ -125,5 +125,5 @@ offsetHeight
 	<Chart {width} {height} />
 </div>
 
-//_ ПРИВЯЗКА К ЭЛЕМЕНТО DOM
+//>> ПРИВЯЗКА К ЭЛЕМЕНТО DOM
 <canvas bind:this={canvas} />

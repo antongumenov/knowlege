@@ -1,5 +1,5 @@
-//_ СОБЫТИЯ
-//~ DOM EVENTS
+//>> СОБЫТИЯ
+//<< DOM EVENTS
 <script>
 	let m = $state({ x: 0, y: 0 });
 
@@ -14,7 +14,7 @@
 	The mouse position is {m.x} x {m.y}
 </div>
 
-//~ СОБЫТИЕ КОМПОНЕНТА
+//<< СОБЫТИЕ КОМПОНЕНТА
 <script>
 	let { onMessage } = $props();
 
@@ -27,7 +27,7 @@
 
 
 
-//_ СОБЫТИЯ C ON
+//>> СОБЫТИЯ C ON
 <script>
 	let m = { x: 0, y: 0 };
 
@@ -42,14 +42,14 @@
 	The pointer is at {m.x} x {m.y}
 </div>
 
-//_ МОДИФИКАТОРЫ СОБЫТИЙ C ON
+//>> МОДИФИКАТОРЫ СОБЫТИЙ C ON
 // можно задать характеристики реакции на событие
 // тут она сработает лишь раз
 <button on:click|once={() => alert('clicked')}>
 	Click me
 </button>
 
-//~ список модификаторов 
+//<< список модификаторов 
 // preventDefault — event.preventDefault() 
 // stopPropagation — event.stopPropagation()
 // passive — улутшает производительность прокрутки, свелт добавляет сам где может
@@ -62,10 +62,10 @@
 // можно группировать
 on:click|once|capture={...}
 
-//_ СОБЫТИЯ КОМПОНЕНТА C ON
+//>> СОБЫТИЯ КОМПОНЕНТА C ON
 // можно создавать собственные события
 
-//~ компонент в котором создаю событие
+//<< компонент в котором создаю событие
 <script>
 	import { createEventDispatcher } from 'svelte';
 
@@ -85,7 +85,7 @@ on:click|once|capture={...}
 </button>
 
 
-//~ компонент в котором ловлю событие
+//<< компонент в котором ловлю событие
 <script>
 	import Inner from './Inner.svelte';
 
@@ -97,11 +97,11 @@ on:click|once|capture={...}
 // ловлю событие
 <Inner on:message={handleMessage} />
 
-//_ ВСПЛЫТИЕ СОБЫТИЙ КОМПОНЕНТА C ON
+//>> ВСПЛЫТИЕ СОБЫТИЙ КОМПОНЕНТА C ON
 // в отличии от DOM событий, события компонента не всплывают
 // его нужно пробрасывать если хочу поймать его выше
 
-//~ компонент в котором создаю событие
+//<< компонент в котором создаю событие
 <script>
 	import { createEventDispatcher } from 'svelte';
 
@@ -120,7 +120,7 @@ on:click|once|capture={...}
 	Click to say hello
 </button>
 
-//~ здесь использую компонент с событием
+//<< здесь использую компонент с событием
 <script>
 	import Inner from './Inner.svelte';
 </script>
@@ -128,7 +128,7 @@ on:click|once|capture={...}
 // пробрасываю
 <Inner on:message /> 
 
-//~ использую
+//<< использую
 <script>
 	import Outer from './Outer.svelte';
 
@@ -139,7 +139,7 @@ on:click|once|capture={...}
 
 <Outer on:message={handleMessage} />
 
-//_ ПРОБРАСЫВАНЕИ DOM СОБЫТИЙ C ON
+//>> ПРОБРАСЫВАНЕИ DOM СОБЫТИЙ C ON
 // здесь использую внешний обработчик
 <button on:click>
 	Push

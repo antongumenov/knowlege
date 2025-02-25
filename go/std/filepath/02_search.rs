@@ -1,11 +1,11 @@
-//_ ПОИСК ФАЙЛОВ ПО ПАТТЕРНУ
-//~ Glob(pathPatten)
+//>> ПОИСК ФАЙЛОВ ПО ПАТТЕРНУ
+//<< Glob(pathPatten)
 // озвращает string срез содержащий совпадающие пути
 sl, err := filepath.Glob("/store/dev/*")
 fmt.Println(sl, err) // [/store/dev/knowlege /store/dev/projects /store/dev/projects_to_learn] <nil>
 
-//_ ОБРАБОТКА ВСЕХ ФАЙЛОВ В КАТАЛОГЕ
-//~ WalkDir(directory, func)
+//>> ОБРАБОТКА ВСЕХ ФАЙЛОВ В КАТАЛОГЕ
+//<< WalkDir(directory, func)
 // делает действие для каждого обьекта в папке
 // принимает функцию,
 // которая принимает путь, DirEntry и dirErr

@@ -12,10 +12,12 @@ krita
 qbittorrent 
 telegram-desktop 
 mpv 
+cups
+nvim
+xclip - copy paste in vim to clipboard
 
 stacer-bin
 visual-studio-code-bin
-rnote
 
 //esp_idf
 sudo pacman -S --needed gcc git make flex bison gperf python cmake ninja ccache dfu-util libusb

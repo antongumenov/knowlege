@@ -1,4 +1,4 @@
-//_ СТРУКТУРА Response
+//>> СТРУКТУРА Response
 fmt.Println(response.StatusCode) // 200
 fmt.Println(response.Status) // 200 OK
 fmt.Println(response.Proto) // HTTP/1.1
@@ -13,7 +13,7 @@ fmt.Println(response.TLS) // <nil>
 fmt.Println(response.Cookies()) // []
 fmt.Println(response.Location()) // <nil> http: no Location header in response
 
-//~ Write(writer)
+//<< Write(writer)
 // Этот метод записывает сводку ответа на указанный Writer.
 response.Write(os.Stdout)
 // HTTP/1.1 200 OK
@@ -23,7 +23,7 @@ response.Write(os.Stdout)
 //
 // {"id":1,"name":"Anton","phone":"9173297729"}
 
-//~ Body
+//<< Body
 // возвращает ReadCloser, который является Reader,
 // определяющим метод Close и обеспечивающим доступ к телу ответа.
 data, _ := io.ReadAll(response.Body)

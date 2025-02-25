@@ -1,7 +1,7 @@
-//_ SELECT
+//>> SELECT
 // аналог switch case только для каналов
 
-//_ ПОЛУЧЕНИЕ БЕЗ БЛОКИРОВКИ
+//>> ПОЛУЧЕНИЕ БЕЗ БЛОКИРОВКИ
 // сколько каналов будем слушать
 openChannals := 2
 for {
@@ -36,7 +36,7 @@ for {
                 // уменбшаем количесво прослушивваемых каналов
                 openChannels--
             }
-        // если не опо одному каналу не пришли данные
+        // если не по одному каналу не пришли данные
         default:
             // если они оба закрыты
             if (openChannels == 0) {
@@ -47,11 +47,12 @@ for {
             //! ВМЕСТО ОЖИДАНИЯ МОЖНО ДЕЛАТЬ КАКИЕ ТО ДРУГИЕ ДЕЙСТВИЯ
             fmt.Println("-- No message ready to be  received")
             time.Sleep(time.Millisecond * 500)
+            //! default выполняется только 1 раз
     }
 }
 alldone: fmt.Println("All values received")
 
-//_ ОТПРАВКА БЕЗ БЛОКИРОВКИ
+//>> ОТПРАВКА БЕЗ БЛОКИРОВКИ
 // так же я могу отправлять без блокировки
 func enumerateProducts(channel chan<- *Product) {
     for _, p := range ProductList {
@@ -68,7 +69,7 @@ func enumerateProducts(channel chan<- *Product) {
     close(channel)
 }
 
-//_ DEFAULT
+//>> DEFAULT
 // если не поставить секцию default
 // select заблокирует горутину 
 // пока по какому то каналу не прийдут данные

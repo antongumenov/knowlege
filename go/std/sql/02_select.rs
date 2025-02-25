@@ -1,39 +1,39 @@
-//_ ЗАПРОСЫ К БАЗЕ ДАННЫХ НА ПОЛУЧЕНИЕ ДАННЫХ
-//~ методы запросов
+//>> ЗАПРОСЫ К БАЗЕ ДАННЫХ НА ПОЛУЧЕНИЕ ДАННЫХ
+//<< методы запросов
 // Query(query, ...args) - возвращает Rows c результатами
 // QueryRow(query, ...args) - возвращает Row c первым результатом
 // Exec(query, ...args) - выполняет запрос не возвращающий данные, возвращает Result
 
-//~ доступ к данным Rows
+//<< доступ к данным Rows
 // Next() - переход к следующему значению
 // NextResultSet() - переход к следующему набору значений
 // Scan(...targets) - сканирование результатов в переменные
 // Close() - закрытие перебора значений, когда остальные результаты не нужны
 
-//~ Query(query, ...args)
+//<< Query(query, ...args)
 db, _ := sql.Open("sqlite3", "products.db")
 rows, _ := db.Query("SELECT * FROM Products")
 
-//~ Next()
+//<< Next()
 // перебираю результаты
 for rows.Next() {
 	var id, category int
 	var name string
 	var price float64
-	//~ Scan(...targets)
+	//<< Scan(...targets)
 	// пишу результат в переменные
 	// чувствителен к типу
 	rows.Scan(&id, &name, &category, &price)
 	fmt.Printf("Row: %v %v %v %v\n", id, name, category, price)
 }
 
-//_ ПРАВИЛА СОПОСТАВЛЕНИЯ ТИПОВ
+//>> ПРАВИЛА СОПОСТАВЛЕНИЯ ТИПОВ
 // SQL cтроки, числовые и логические значения могут быть сопоставлены с их аналогами в Go
 // Числовые и логические типы SQL можно сканировать в строки Go
 // Строки SQL могут быть просканированы в числовые типы Go
 // Значения времени SQL можно сканировать в строки Go или значения *time.Time.
 
-//_ СКАНИРОВАНИЕ ЗНАЧЕНИЙ В СТРУКТУРУ
+//>> СКАНИРОВАНИЕ ЗНАЧЕНИЙ В СТРУКТУРУ
 
 type Product struct {
 	Id       int
@@ -50,7 +50,7 @@ for rows.Next() {
 }
 fmt.Println(products) // [{1 Kayak 1 279} {2 Lifejacket 1 48.95} {3 Soccer Ball 2 19.5} {4 Corner Flags 2 34.95}]
 
-//_ ЗАПОЛНИТЕЛИ
+//>> ЗАПОЛНИТЕЛИ
 // это значения которые можно использовать в теле запроса
 
 type Category struct {
@@ -84,8 +84,8 @@ for rows.Next() {
 }
 fmt.Println(products) // [{3 Soccer Ball {2 Soccer} 19.5} {4 Corner Flags {2 Soccer} 34.95}]
 
-//_ ПОЛУЧЕНИЕ ОТДЕЛЬНЫХ ЗАПИСЕЙ
-//~ QueryRow(query, ...args)
+//>> ПОЛУЧЕНИЕ ОТДЕЛЬНЫХ ЗАПИСЕЙ
+//<< QueryRow(query, ...args)
 // применяется когда нужно достать одну запись
 db, _ := sql.Open(`sqlite3`, `products.db`)
 

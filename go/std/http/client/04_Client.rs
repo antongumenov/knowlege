@@ -1,4 +1,4 @@
-//_ СУТЬ
+//>> СУТЬ
 // когда простые методы отправки
 // неявно создается структура Client
 // является глобальной и доступна всем пакетом
@@ -6,17 +6,17 @@
 // и не позволяет управлять запросом
 // по этому хорошая практика создавать клиент руками
 
-//_ СОЗДАНИЕ КЛИЕНТА
+//>> СОЗДАНИЕ КЛИЕНТА
 client := http.Client{}
 
-//_ ПОЛЯ Client
+//>> ПОЛЯ Client
 // Transport - можно выбрать транспорт, но он определен по умолчанию
 // CheckRedirect - для указания пользовательской политики для обработки повторяющихся перенаправлений
 // Jar - возвращает CookieJar, управляющий файлами куки
 // Timeout - установка таймаута запроса
 
-//_ МЕТОДЫ Client
-//~ Do(request) 
+//>> МЕТОДЫ Client
+//<< Do(request) 
 // отправляет Request возвращая Response и error
 client := http.Client{}
 reqURL, _ := url.Parse("https://httpbin.org/get")
@@ -29,19 +29,19 @@ reqURL, _ := url.Parse("https://httpbin.org/get")
 	}
 res, _ := client.Do(&req)
 
-//~ CloseIdleConnections() 
+//<< CloseIdleConnections() 
 // закрывает все бездействующие HTTP-запросы, которые в настоящее время открыты и не используются
 client.CloseIdleConnections()
 
-//~ Get(url) 
+//<< Get(url) 
 // вызывает функцию Get
 res, _ := client.Get("https://httpbin.org/get")
 
-//~ Head(url) 
+//<< Head(url) 
 // вызывает функцию Head
 res, _ := client.Head("https://httpbin.org/get")
 
-//~ Post(url, contentType, reader)
+//<< Post(url, contentType, reader)
 // вызывает функцию Post
 client := http.Client{}
 var prod = Person{"Sam", "John"}
@@ -50,7 +50,7 @@ var builder strings.Builder
 json.NewEncoder(&builder).Encode(prod)
 res, _ := client.Post("https://httpbin.org/get", `application/json`, strings.NewReader(builder.String()))
 
-//~ PostForm(url, data)
+//<< PostForm(url, data)
 // вызывает функцию PostForm
 client := http.Client{}
 	res, _ := client.PostForm("https://httpbin.org/post", 

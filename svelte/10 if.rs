@@ -1,4 +1,4 @@
-//_ IF
+//>> IF
 
 <button on:click={increment}>
 	Clicked {count}

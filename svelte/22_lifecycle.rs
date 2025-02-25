@@ -1,4 +1,4 @@
-//_ onMount
+//>> onMount
 // срабатывает когда компонент смонтирован на старницу
 <script>
 	import { onMount } from 'svelte';
@@ -7,7 +7,7 @@
 	});
 </script>   
 
-//_ beforeUpdate afterUpdate
+//>> beforeUpdate afterUpdate
 // до и после обновления
 <script>
 	import {
@@ -26,12 +26,12 @@
 
 </script>
 
-//_ tick
+//>> tick
 // можно вызвать когда угодно
 // запускает пееррисовку Dome сразу при вызове
 // смотри tutorial svelte
 
-//_ onDestroy
+//>> onDestroy
 // перед удалением компонента
 <script>
 	import { onDestroy } from 'svelte';

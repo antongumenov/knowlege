@@ -1,4 +1,4 @@
-//_ <svelte:window>
+//>> <svelte:window>
 // я могу повесить обработчик на событие на window
 <svelte:window onkeydown={handleKeydown} />
 
@@ -14,7 +14,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-//_ <svelte:document>
+//>> <svelte:document>
 // так же могу повесить обработчик на событие на document
 // activeElement
 // fullscreenElement
@@ -23,11 +23,11 @@
 
 <svelte:document onvisibilitychange={handleVisibilityChange} use:someAction />
 
-//_ <svelte:body>
+//>> <svelte:body>
 // могу повесить хендлер на событие body
 <svelte:body onmouseenter={handleMouseenter} onmouseleave={handleMouseleave} use:someAction />
 
-//_ <svelte:head>
+//>> <svelte:head>
 // могу править метаданные страницы
 <svelte:head>
 	<title>Hello world!</title>
