@@ -1,11 +1,14 @@
-//>> INSTALATION
-//<< INSTALL
+//>> run in docker for dev
+docker run --rm -p 5432:5432 -e POSTGRES_USER=ang -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=users_db -d postgres
+
+//>> instalation
+//<< install
 // paru -S postgresql
 
-//<< CHANGE USER TO POSTGRESS
+//<< change user to postgress
 // sudo -iu postgres
 
-//<< INIT DB
+//<< init db
 // set locale, encoding, data directory, use data page checksums
 // initdb --locale=ru_RU.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
 // exit

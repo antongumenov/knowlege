@@ -1,0 +1,7 @@
+#/bin/bash
+
+# output arg 1
+echo ${1}
+
+#output arg 2
+echo ${2}

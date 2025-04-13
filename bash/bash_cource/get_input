@@ -1,0 +1,27 @@
+#!/bin/bash
+# some comment
+#naming of file can be wihtout file extention
+
+# write in terminal. everything between BLAH is a message
+# i can write any word, not only BLAH
+cat << BLAH
+what directory
+BLAH
+
+#read input to var DIR, naming can be lowercase
+read DIR
+
+# go to directory
+cd $DIR
+pwd
+ls
+
+exit 0
+
+# than i need to do this file executable chmod +x filename
+# and run it ./filename
+# if i go sudo i can run shall script and go out sudo 
+# to do it a need type
+# source filename.sh
+# or
+# . filename.sh

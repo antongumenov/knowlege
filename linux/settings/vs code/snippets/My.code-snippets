@@ -14,41 +14,6 @@
         "prefix": "e",
         "body": "errors.New(\"$0\")",
     },
-    "rv": {
-        "scope": "go",
-        "prefix": "rv",
-        "body": "return $0",
-    },
-    "rn": {
-        "scope": "go",
-        "prefix": "rn",
-        "body": "return nil",
-    },
-    "re": {
-        "scope": "go",
-        "prefix": "re",
-        "body": "return err",
-    },
-    "rec": {
-        "scope": "go",
-        "prefix": "ren",
-        "body": "return errors.New(\"$0\")",
-    },
-    "rvn": {
-        "scope": "go",
-        "prefix": "rvn",
-        "body": "return $0, nil",
-    },
-    "rve": {
-        "scope": "go",
-        "prefix": "rve",
-        "body": "return $0, err",
-    },
-    "rvec": {
-        "scope": "go",
-        "prefix": "rvec",
-        "body": "return $0, errors.New(\"$0\")",
-    },
     "s": {
         "scope": "go",
         "prefix": "s",
@@ -69,7 +34,7 @@
     },
     "me": {
         "scope": "go",
-        "prefix": "me",
+        "prefix": "m",
         "body": [
             "func (res *$1) $2($3) $4 {",
             "   $5",

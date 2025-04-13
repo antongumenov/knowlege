@@ -1,0 +1,19 @@
+#/bin/bash
+
+# pattern matching needs to find some part of string and delete it
+
+# ## - go from start to last matching and delete all before and matching
+# here if i type /bin/bash it outputs bash
+filename=${1##*/}
+echo $filename
+
+# # - go from start to first matching and deleta all before and matching
+# here if i type /bin/bash it outputs bin/bash
+filename=${1#*/}
+echo $filename
+
+# % - go from end to first matching and delete all before and matching
+# %% - go from end to last matching and delete all begore and matching 
+# here if i type /bin/bash it outputs /bin
+filename=${1%/*}
+echo $filename
