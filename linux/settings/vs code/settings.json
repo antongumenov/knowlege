@@ -2,13 +2,13 @@
     "workbench.startupEditor": "none",
     "go.gopath": "/home/ang/Go",
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "'Ubuntu Mono'",
+    "editor.fontFamily": "Fira Code",
     "explorer.compactFolders": false,
     "editor.tabCompletion": "onlySnippets",
     "better-comments.tags": [
 
         {
-            "tag": "_",
+            "tag": ">>",
             "color": "#FF2D00",
             "strikethrough": false,
             "underline": false,
@@ -17,7 +17,7 @@
             "italic": false
         },
         {
-            "tag": "~",
+            "tag": "<<",
             "color": "#449d48",
             "strikethrough": false,
             "underline": false,
@@ -61,14 +61,7 @@
         "asvetliakov.vscode-neovim": 1
     },
     "git.openRepositoryInParentFolders": "never",
-    "window.menuBarVisibility": "toggle",
-    "remote.extensionKind": {
-        "GitHub.copilot": [
-            "ui"
-        ],
-        "GitHub.copilot-chat": [
-            "ui"
-        ],
-    },
     "workbench.colorTheme": "One Monokai",
+    "editor.lineNumbers": "relative",
+    "extensions.ignoreRecommendations": true,
 }

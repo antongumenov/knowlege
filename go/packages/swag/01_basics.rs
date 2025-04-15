@@ -29,6 +29,7 @@ go install github.com/swaggo/swag/cmd/swag@latest
 
 //<< step 3: run swag init
 // this command creates docs directory
+swag init -g ./cmd/api/main.go
 
 //<< step 4: install httpSwagger
 go get -u github.com/swaggo/http-swagger

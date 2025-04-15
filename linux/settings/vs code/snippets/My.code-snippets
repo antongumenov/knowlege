@@ -14,12 +14,34 @@
         "prefix": "e",
         "body": "errors.New(\"$0\")",
     },
+    "ie": {
+        "scope": "go",
+        "prefix": "ie",
+        "body": [
+            "if err!=nil{",
+            "    $1",
+            "}",
+        ],
+    },
     "s": {
         "scope": "go",
         "prefix": "s",
         "body": [
             "type $1 struct{",
-            "   $2",
+            "    $2",
+            "}",
+        ],
+    },
+    "sc": {
+        "scope": "go",
+        "prefix": "sc",
+        "body": [
+            "type $1 struct{",
+            "    $2",
+            "}",
+            "",
+            "func New() *$1{",
+            "    return &$1{$3}",
             "}",
         ],
     },
@@ -28,7 +50,7 @@
         "prefix": "i",
         "body": [
             "type $1 interface{",
-            "   $2",
+            "    $2",
             "}",
         ],
     },
@@ -36,8 +58,8 @@
         "scope": "go",
         "prefix": "m",
         "body": [
-            "func (res *$1) $2($3) $4 {",
-            "   $5",
+            "func (rr *$1) $2($3) $4 {",
+            "    $5",
             "}",
         ],
     },
@@ -46,8 +68,131 @@
         "prefix": "f",
         "body": [
             "func $1($2) $3 {",
-            "   $4",
+            "    $4",
             "}",
         ],
     },
+    "c": {
+        "scope": "go, rust",
+        "prefix": "c",
+        "body": [
+            "// $0",
+        ],
+    },
+    "cc": {
+        "scope": "go, rust",
+        "prefix": "cc",
+        "body": [
+            "//<< $0",
+        ],
+    },
+    "ccc": {
+        "scope": "go, rust",
+        "prefix": "ccc",
+        "body": [
+            "//>> $0",
+        ],
+    },
+    "cccc": {
+        "scope": "go, rust",
+        "prefix": "cccc",
+        "body": [
+            "// todo $0",
+        ],
+    },
+    "ccccc": {
+        "scope": "go, rust",
+        "prefix": "c",
+        "body": [
+            "//! $0",
+        ],
+    },
+    "et":{
+        "scope": "go",
+        "prefix": "et",
+        "body": "//go:generate easytags \\$GOFILE"
+    },
+    "ok":{
+        "scope": "go",
+        "prefix": "ok",
+        "body": [
+            "if !ok{",
+            "    $1",
+            "}",
+        ],
+    },
+    "han":{
+        "scope": "go",
+        "prefix": "han",
+        "body": [
+            "package handler",
+            "",
+            "import \"go.uber.org/zap\"",
+            "",
+            "type Servicer interface {",
+            "}",
+            "",
+            "type Handler struct {",
+            "    service Servicer",
+            "    logger  *zap.Logger",
+            "}",
+            "",
+            "func New(service Servicer, logger *zap.Logger) *Handler {",
+            "    return &Handler{service: service, logger: logger}",
+            "}",
+        ],
+    },
+    "ser":{
+        "scope": "go",
+        "prefix": "ser",
+        "body": [
+            "package service",
+            "",
+            "import \"go.uber.org/zap\"",
+            "",
+            "type Repositorier interface {",
+            "}",
+            "",
+            "type Service struct {",
+            "    repo Repositorier",
+            "    logger  *zap.Logger",
+            "}",
+            "",
+            "func New(repo Repositorier, logger *zap.Logger) *Service {",
+            "    return &Service{repo: repo, logger: logger}",
+            "}",
+        ],
+    }, 
+    "rep":{
+        "scope": "go",
+        "prefix": "rep",
+        "body": [
+            "package repository",
+            "",
+            "import \"go.uber.org/zap\"",
+            "",
+            "type Repository struct {",
+            "    logger  *zap.Logger",
+            "}",
+            "",
+            "func New(logger *zap.Logger) *Repository {",
+            "    return &Repository{logger: logger}",
+            "}",
+        ],
+    }, 
+    "con":{
+        "scope": "go",
+        "prefix": "con",
+        "body": [
+            "package conf",
+            "",
+            "type AppConf struct {",
+            "    ",
+            "}",
+            "",
+            "func New() *AppConf {",
+            "    return &AppConf{}",
+            "}",
+        ],
+    }
 }
