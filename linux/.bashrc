@@ -1,4 +1,4 @@
-﻿#
+#
 # ~/.bashrc
 #
 
@@ -7,10 +7,5 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='\[\e[0;32m\]\u \W \$ \[\e[0m\]'
-
-export PATH=$PATH:/usr/local/go/bin
-
-
-
+PS1='\[\e[1;32m\]\W \[\e[0m\]'
 

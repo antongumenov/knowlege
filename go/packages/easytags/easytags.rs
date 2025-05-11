@@ -2,7 +2,7 @@
 // to generate tags for structure
 
 //<< install
-go get github.com/betacraft/easytags
+go install github.com/betacraft/easytags@latest
 
 //>> usage in code
 //<< write go generate comment

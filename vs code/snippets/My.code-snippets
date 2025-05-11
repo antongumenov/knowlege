@@ -1,0 +1,228 @@
+{
+  "p": {
+    "scope": "go",
+    "prefix": "p",
+    "body": "fmt.Println($0)"
+  },
+  "pf": {
+    "scope": "go",
+    "prefix": "pf",
+    "body": "fmt.Printf(\"$0\")"
+  },
+  "pi": {
+    "scope": "go",
+    "prefix": "pi",
+    "body": "fmt.Println(\"in$0\")"
+  },
+  "e": {
+    "scope": "go",
+    "prefix": "e",
+    "body": "errors.New(\"$0\")"
+  },
+  "ie": {
+    "scope": "go",
+    "prefix": "ie",
+    "body": ["if err!=nil{", "}"]
+  },
+  "iee": {
+    "scope": "go",
+    "prefix": "iee",
+    "body": ["if err:=$1; err!=nil{", "}"]
+  },
+  "s": {
+    "scope": "go",
+    "prefix": "s",
+    "body": ["type $1 struct{", "}"]
+  },
+  "sc": {
+    "scope": "go",
+    "prefix": "sc",
+    "body": [
+      "type $1 struct{",
+      "}",
+      "",
+      "func New($3) *$1{",
+      "    return &$1{$4}",
+      "}"
+    ]
+  },
+  "i": {
+    "scope": "go",
+    "prefix": "i",
+    "body": ["type $1 interface{", "    $2", "}"]
+  },
+  "m": {
+    "scope": "go",
+    "prefix": "m",
+    "body": ["func (rr *$1) $2($3) $4 {", "}"]
+  },
+  "mh": {
+    "scope": "go",
+    "prefix": "mh",
+    "body": [
+      "func (rr *Handler) $1(w http.ResponseWriter, r *http.Request){",
+      "}"
+    ]
+  },
+  "f": {
+    "scope": "go",
+    "prefix": "f",
+    "body": ["func $1($2) $3 {", "}"]
+  },
+  "c": {
+    "scope": "go, rust",
+    "prefix": "c",
+    "body": ["// $0"]
+  },
+  "cc": {
+    "scope": "go, rust",
+    "prefix": "cc",
+    "body": ["//<< $0"]
+  },
+  "ccc": {
+    "scope": "go, rust",
+    "prefix": "ccc",
+    "body": ["//>> $0"]
+  },
+  "cccc": {
+    "scope": "go, rust",
+    "prefix": "cccc",
+    "body": ["// todo $0"]
+  },
+  "ccccc": {
+    "scope": "go, rust",
+    "prefix": "ccccc",
+    "body": ["//! $0"]
+  },
+  "et": {
+    "scope": "go",
+    "prefix": "et",
+    "body": "//go:generate easytags \\$GOFILE"
+  },
+  "ok": {
+    "scope": "go",
+    "prefix": "ok",
+    "body": ["if !ok{", "    $1", "}"]
+  },
+  "rv": {
+    "scope": "go",
+    "prefix": "rv",
+    "body": "return $1"
+  },
+  "re": {
+    "scope": "go",
+    "prefix": "re",
+    "body": "return err"
+  },
+  "rne": {
+    "scope": "go",
+    "prefix": "rne",
+    "body": "return errors.New(\"$1\")"
+  },
+  "rve": {
+    "scope": "go",
+    "prefix": "rve",
+    "body": "return $1, err"
+  },
+  "rvn": {
+    "scope": "go",
+    "prefix": "rvn",
+    "body": "return $1, nil"
+  },
+  "rvne": {
+    "scope": "go",
+    "prefix": "rvne",
+    "body": "return $1, errors.New(\"$2\")"
+  },
+  "rn": {
+    "scope": "go",
+    "prefix": "rn",
+    "body": "return nil"
+  },
+  "rnn": {
+    "scope": "go",
+    "prefix": "rnn",
+    "body": "return nil, nil"
+  },
+  "sw": {
+    "scope": "go",
+    "prefix": "sw",
+    "body": [
+      "// @summary $1",
+      "// @Tags $2",
+      "// @Description $3",
+      "// @ID $4",
+      "// @Accept $5",
+      "// @Produce $6",
+      "// @Param ${7:name} ${8:source} ${9:type} ${10:required_bool} ${11:\"description\"}",
+      "// @Success ${12:status_code} {${13:type}} ${14:type}",
+      "// @Failure ${15:status_code} {${16:type}} ${17:type}",
+      "// @Router /$18 [${19:method}]"
+    ]
+  },
+  "handler": {
+    "scope": "go",
+    "prefix": "han",
+    "body": [
+      "package handler",
+      "type Servicer interface {",
+      "}",
+      "",
+      "type Coder interface {",
+      "Decode(r io.Reader, v interface{}) error",
+      "}",
+      "",
+      "type Handler struct {",
+      "service Servicer",
+      "logger  *zap.Logger",
+      "responder *responder.Responder",
+      "coder Coder",
+      "}",
+      "func New(service Servicer, infr *infrastructure.Infrastructure) *Handler {",
+      "return &Handler{",
+      "service: service,",
+      "logger:  infr.Logger,",
+      "responder: infr.Responder",
+      "coder: infr.Coder",
+      "}",
+      "}"
+    ]
+  },
+  "ser": {
+    "scope": "go",
+    "prefix": "ser",
+    "body": [
+      "package service ",
+      "type Repositorier interface {",
+      "}",
+      "",
+      "type Service struct {",
+      "repo   Repositorier",
+      "logger *zap.Logger",
+      "}",
+      "func New(repo Repositorier, infr *infrastructure.Infrastructure) *Service {",
+      "return &Service{",
+      "repo:   repo,",
+      "logger: infr.Logger,",
+      "}",
+      "}"
+    ]
+  },
+  "rep": {
+    "scope": "go",
+    "prefix": "rep",
+    "body": [
+      "package repo",
+      "type Repository struct {",
+      "*db.DB",
+      "logger *zap.Logger",
+      "}",
+      "func New(db *db.DB, infr *infrastructure.Infrastructure) *Repository {",
+      "return &Repository{",
+      "DB:     db,",
+      "logger: infr.Logger,",
+      "}",
+      "}"
+    ]
+  }
+}

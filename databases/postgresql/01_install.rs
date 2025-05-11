@@ -1,5 +1,5 @@
 //>> run in docker for dev
-docker run --rm -p 5432:5432 -e POSTGRES_USER=ang -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=users_db -d postgres
+docker run --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=petstore -d postgres
 
 //>> instalation
 //<< install

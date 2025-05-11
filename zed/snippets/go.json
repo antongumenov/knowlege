@@ -1,0 +1,197 @@
+{
+  "p": {
+    "prefix": "p",
+    "body": "fmt.Println($0)"
+  },
+  "pf": {
+    "prefix": "pf",
+    "body": "fmt.Printf(\"$0\")"
+  },
+  "pi": {
+    "prefix": "pi",
+    "body": "fmt.Println(\"in$0\")"
+  },
+  "e": {
+    "prefix": "e",
+    "body": "errors.New(\"$0\")"
+  },
+  "ie": {
+    "prefix": "ie",
+    "body": ["if err!=nil{", "}"]
+  },
+  "iee": {
+    "prefix": "iee",
+    "body": ["if err:=$1; err!=nil{", "}"]
+  },
+  "s": {
+    "prefix": "s",
+    "body": ["type $1 struct{", "}"]
+  },
+  "sc": {
+    "prefix": "sc",
+    "body": [
+      "type $1 struct{",
+      "}",
+      "",
+      "func New($3) *$1{",
+      "    return &$1{$4}",
+      "}"
+    ]
+  },
+  "i": {
+    "prefix": "i",
+    "body": ["type $1 interface{", "    $2", "}"]
+  },
+  "m": {
+    "prefix": "m",
+    "body": ["func (rr *$1) $2($3) $4 {", "}"]
+  },
+  "mh": {
+    "prefix": "mh",
+    "body": [
+      "func (rr *Handler) $1(w http.ResponseWriter, r *http.Request){",
+      "}"
+    ]
+  },
+  "f": {
+    "prefix": "f",
+    "body": ["func $1($2) $3 {", "}"]
+  },
+  "c": {
+    "prefix": "c",
+    "body": ["// $0"]
+  },
+  "cc": {
+    "prefix": "cc",
+    "body": ["//<< $0"]
+  },
+  "ccc": {
+    "prefix": "ccc",
+    "body": ["//>> $0"]
+  },
+  "cccc": {
+    "prefix": "cccc",
+    "body": ["// todo $0"]
+  },
+  "ccccc": {
+    "prefix": "ccccc",
+    "body": ["//! $0"]
+  },
+  "et": {
+    "prefix": "et",
+    "body": "//go:generate easytags \\$GOFILE"
+  },
+  "ok": {
+    "prefix": "ok",
+    "body": ["if !ok{", "    $1", "}"]
+  },
+  "rv": {
+    "prefix": "rv",
+    "body": "return $1"
+  },
+  "re": {
+    "prefix": "re",
+    "body": "return err"
+  },
+  "rne": {
+    "prefix": "rne",
+    "body": "return errors.New(\"$1\")"
+  },
+  "rve": {
+    "prefix": "rve",
+    "body": "return $1, err"
+  },
+  "rvn": {
+    "prefix": "rvn",
+    "body": "return $1, nil"
+  },
+  "rvne": {
+    "prefix": "rvne",
+    "body": "return $1, errors.New(\"$2\")"
+  },
+  "rn": {
+    "prefix": "rn",
+    "body": "return nil"
+  },
+  "rnn": {
+    "prefix": "rnn",
+    "body": "return nil, nil"
+  },
+  "sw": {
+    "prefix": "sw",
+    "body": [
+      "// @summary $1",
+      "// @Tags $2",
+      "// @Description $3",
+      "// @ID $4",
+      "// @Accept $5",
+      "// @Produce $6",
+      "// @Param ${7:name} ${8:source} ${9:type} ${10:required_bool} ${11:\"description\"}",
+      "// @Success ${12:status_code} {${13:type}} ${14:type}",
+      "// @Failure ${15:status_code} {${16:type}} ${17:type}",
+      "// @Router /$18 [${19:method}]"
+    ]
+  },
+  "handler": {
+    "prefix": "han",
+    "body": [
+      "package handler",
+      "type Servicer interface {",
+      "}",
+      "",
+      "type Coder interface {",
+      "Decode(r io.Reader, v interface{}) error",
+      "}",
+      "",
+      "type Handler struct {",
+      "service Servicer",
+      "logger  *zap.Logger",
+      "responder *responder.Responder",
+      "coder Coder",
+      "}",
+      "func New(service Servicer, infr *infrastructure.Infrastructure) *Handler {",
+      "return &Handler{",
+      "service: service,",
+      "logger:  infr.Logger,",
+      "responder: infr.Responder",
+      "coder: infr.Coder",
+      "}",
+      "}"
+    ]
+  },
+  "ser": {
+    "prefix": "ser",
+    "body": [
+      "package service ",
+      "type Repositorier interface {",
+      "}",
+      "",
+      "type Service struct {",
+      "repo   Repositorier",
+      "logger *zap.Logger",
+      "}",
+      "func New(repo Repositorier, infr *infrastructure.Infrastructure) *Service {",
+      "return &Service{",
+      "repo:   repo,",
+      "logger: infr.Logger,",
+      "}",
+      "}"
+    ]
+  },
+  "rep": {
+    "prefix": "rep",
+    "body": [
+      "package repo",
+      "type Repository struct {",
+      "*db.DB",
+      "logger *zap.Logger",
+      "}",
+      "func New(db *db.DB, infr *infrastructure.Infrastructure) *Repository {",
+      "return &Repository{",
+      "DB:     db,",
+      "logger: infr.Logger,",
+      "}",
+      "}"
+    ]
+  }
+}
